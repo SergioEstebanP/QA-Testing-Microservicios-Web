@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/archetype-restapi-be-serenitybdd.iml" filepath="$PROJECT_DIR$/.idea/modules/archetype-restapi-be-serenitybdd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/archetype-restapi-be-serenitybdd_main.iml" filepath="$PROJECT_DIR$/.idea/modules/archetype-restapi-be-serenitybdd_main.iml" group="archetype-restapi-be-serenitybdd" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/archetype-restapi-be-serenitybdd_test.iml" filepath="$PROJECT_DIR$/.idea/modules/archetype-restapi-be-serenitybdd_test.iml" group="archetype-restapi-be-serenitybdd" />
+    </modules>
+  </component>
+</project>

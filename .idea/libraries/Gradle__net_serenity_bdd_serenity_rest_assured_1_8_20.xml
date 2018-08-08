@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: net.serenity-bdd:serenity-rest-assured:1.8.20">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.serenity-bdd/serenity-rest-assured/1.8.20/2a1e563c60a7d55ac7e22fb8350a413bf72e4d6/serenity-rest-assured-1.8.20.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.serenity-bdd/serenity-rest-assured/1.8.20/9ef7c4a377501015cfd237fb7329b9dc6770e570/serenity-rest-assured-1.8.20-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
