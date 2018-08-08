@@ -19,10 +19,11 @@ public class ExampleDefinitions {
 
     /**
      * Method executed before each scenario to start measuring execution times
+     *
      * @param scenario Scenario object to check if the scenario contains the tag to write on InfluxDB
-     * */
+     */
     @Before
-    public void startInfluxdb(Scenario scenario){
+    public void startInfluxdb(Scenario scenario) {
         if (scenario.getSourceTagNames().contains("@influxdb"))
             Serenity.setSessionVariable("startTime").to(Calendar.getInstance());
     }
@@ -30,11 +31,11 @@ public class ExampleDefinitions {
     @Steps
     private ExampleSteps exampleSteps;
 
-    @When("^I request to (get|update|delete) a user by ID \"([^\"]*)\"$")
-    public void iRequestOperUserByID(String operation, String id) {
+    @When("^I request to (get|update|delete) a pet by ID \"([^\"]*)\"$")
+    public void iRequestOperPetByID(String operation, String id) {
         switch (operation.toLowerCase()) {
             case "get":
-                exampleSteps.getUserById(id);
+                exampleSteps.getPetById(id);
                 break;
             case "update":
                 exampleSteps.updateUserById(id);
@@ -65,8 +66,9 @@ public class ExampleDefinitions {
 
     /**
      * Method executed after each scenario to write execution times on InfluxDB
+     *
      * @param scenario Scenario object to write different attributes in DB
-     * */
+     */
     @After
     public void measureScenario(Scenario scenario) throws AWTException {
 

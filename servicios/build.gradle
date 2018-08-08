@@ -9,7 +9,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:1.8.20")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.9.31")
     }
 }
 
@@ -20,9 +20,9 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile 'net.serenity-bdd:serenity-rest-assured:1.8.20'
-    compile 'net.serenity-bdd:serenity-core:1.8.20'
-    compile 'net.serenity-bdd:serenity-cucumber:1.6.10'
+    compile 'net.serenity-bdd:serenity-rest-assured:1.9.31'
+    compile 'net.serenity-bdd:serenity-core:1.9.31'
+    compile 'net.serenity-bdd:serenity-cucumber:1.9.12'
     compile 'org.json:json:20170516'
     compile 'org.influxdb:influxdb-java:2.5'
 }
