@@ -16,6 +16,6 @@ Due to the large list of servicies offered by [Petstore](https://petstore.swagge
 - [ ] **Pet services**
     - [x] POST a new pet.
 
--[ ] **Store services**
+- [ ] **Store services**
 
--[ ] **User services**
+- [ ] **User services**
