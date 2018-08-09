@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Basic API feature" skipped="0" tests="4" time="16.82" timestamp="2018-06-06T12:20:33.496+02:00[Europe/Paris]"><testcase name="Get an existing user"/><testcase name="Create a new user successfully"/><testcase name="Update an existing user"/><testcase name="Delete an existing user"/></testsuite>

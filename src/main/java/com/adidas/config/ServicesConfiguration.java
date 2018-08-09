@@ -3,9 +3,10 @@ package com.adidas.config;
 public class ServicesConfiguration{
 
     // Base URI
-    public static final String URI = "https://reqres.in";
+    public static final String URI = "http://petstore.swagger.io/v2";
 
     // Endpoints
-    public static final String USERS = "/api/users";
+    // the ednpoint is the last part of the URL requested or posted to the server, it only completes the url
+    public static final String PET = "/pet";
 
 }

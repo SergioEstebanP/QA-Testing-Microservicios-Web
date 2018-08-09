@@ -1,5 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Basic API feature","Get an existing user","SUCCESS","2018-06-06T12:20:33.496+02:00[Europe/Paris]","0.0","14.34"
-"Basic API feature","Create a new user successfully","SUCCESS","2018-06-06T12:20:47.839+02:00[Europe/Paris]","0.0","1.0"
-"Basic API feature","Update an existing user","SUCCESS","2018-06-06T12:20:48.845+02:00[Europe/Paris]","0.0","1.01"
-"Basic API feature","Delete an existing user","SUCCESS","2018-06-06T12:20:49.861+02:00[Europe/Paris]","0.0","0.46"

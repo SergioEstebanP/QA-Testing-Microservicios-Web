@@ -6,26 +6,26 @@
         "before": [
           {
             "result": {
-              "duration": 4290454400,
+              "duration": 2696870788,
               "status": "passed"
             },
             "match": {
-              "location": "ExampleDefinitions.startInfluxdb(Scenario)"
+              "location": "PetExampleDefinitions.startInfluxdb(Scenario)"
             }
           }
         ],
-        "line": 16,
-        "name": "Get an existing user",
+        "line": 10,
+        "name": "",
         "description": "",
-        "id": "basic-api-feature;get-an-existing-user;;2",
+        "id": "testing-petstore.swagger.io-services;;;2",
         "after": [
           {
             "result": {
-              "duration": 121400,
+              "duration": 45226,
               "status": "passed"
             },
             "match": {
-              "location": "ExampleDefinitions.measureScenario(Scenario)"
+              "location": "PetExampleDefinitions.measureScenario(Scenario)"
             }
           }
         ],
@@ -34,32 +34,22 @@
         "steps": [
           {
             "result": {
-              "duration": 3506417100,
+              "duration": 1952174141,
               "status": "passed"
             },
-            "line": 10,
-            "name": "I request to get a user by ID \"2\"",
+            "line": 4,
+            "name": "I request to post a pet stored in json file",
             "match": {
-              "arguments": [
-                {
-                  "val": "get",
-                  "offset": 13
-                },
-                {
-                  "val": "2",
-                  "offset": 31
-                }
-              ],
-              "location": "ExampleDefinitions.iRequestOperUserByID(String,String)"
+              "location": "PetExampleDefinitions.iRequestToStoreAPetInJsonFile()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 17047200,
+              "duration": 10904306,
               "status": "passed"
             },
-            "line": 11,
+            "line": 5,
             "name": "I should get 200 status code",
             "match": {
               "arguments": [
@@ -68,302 +58,44 @@
                   "offset": 13
                 }
               ],
-              "location": "ExampleDefinitions.iShouldGetStatusCode(int)"
+              "location": "PetExampleDefinitions.iShouldGetStatusCode(int)"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 856907900,
+              "duration": 518255977,
               "status": "passed"
             },
-            "line": 12,
-            "name": "The value for the \"first_name\" after get operation should be \"Janet\"",
+            "line": 6,
+            "name": "The value for the \u0027status\u0027 after post operation should be \u0027available\u0027",
             "match": {
               "arguments": [
                 {
-                  "val": "first_name",
-                  "offset": 19
-                },
-                {
-                  "val": "get",
-                  "offset": 37
-                },
-                {
-                  "val": "Janet",
-                  "offset": 62
-                }
-              ],
-              "location": "ExampleDefinitions.theValueForTheAfterGetOperationShouldBe(String,String,String)"
-            },
-            "keyword": "And "
-          }
-        ]
-      },
-      {
-        "before": [
-          {
-            "result": {
-              "duration": 15029700,
-              "status": "passed"
-            },
-            "match": {
-              "location": "ExampleDefinitions.startInfluxdb(Scenario)"
-            }
-          }
-        ],
-        "line": 26,
-        "name": "Create a new user successfully",
-        "description": "",
-        "id": "basic-api-feature;create-a-new-user-successfully;;2",
-        "after": [
-          {
-            "result": {
-              "duration": 49800,
-              "status": "passed"
-            },
-            "match": {
-              "location": "ExampleDefinitions.measureScenario(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
-          {
-            "result": {
-              "duration": 733085200,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "I request to create a user",
-            "match": {
-              "location": "ExampleDefinitions.iRequestToCreateNewUser()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 4159700,
-              "status": "passed"
-            },
-            "line": 21,
-            "name": "I should get 201 status code",
-            "match": {
-              "arguments": [
-                {
-                  "val": "201",
-                  "offset": 13
-                }
-              ],
-              "location": "ExampleDefinitions.iShouldGetStatusCode(int)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 27458200,
-              "status": "passed"
-            },
-            "line": 22,
-            "name": "The value for the \"name\" after post operation should be \"morpheus\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "name",
+                  "val": "status",
                   "offset": 19
                 },
                 {
                   "val": "post",
-                  "offset": 31
+                  "offset": 33
                 },
                 {
-                  "val": "morpheus",
-                  "offset": 57
-                }
-              ],
-              "location": "ExampleDefinitions.theValueForTheAfterGetOperationShouldBe(String,String,String)"
-            },
-            "keyword": "And "
-          }
-        ]
-      },
-      {
-        "before": [
-          {
-            "result": {
-              "duration": 22894000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "ExampleDefinitions.startInfluxdb(Scenario)"
-            }
-          }
-        ],
-        "line": 36,
-        "name": "Update an existing user",
-        "description": "",
-        "id": "basic-api-feature;update-an-existing-user;;2",
-        "after": [
-          {
-            "result": {
-              "duration": 706800,
-              "status": "passed"
-            },
-            "match": {
-              "location": "ExampleDefinitions.measureScenario(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
-          {
-            "result": {
-              "duration": 614652300,
-              "status": "passed"
-            },
-            "line": 30,
-            "name": "I request to update a user by ID \"2\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "update",
-                  "offset": 13
-                },
-                {
-                  "val": "2",
-                  "offset": 34
-                }
-              ],
-              "location": "ExampleDefinitions.iRequestOperUserByID(String,String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 6448300,
-              "status": "passed"
-            },
-            "line": 31,
-            "name": "I should get 200 status code",
-            "match": {
-              "arguments": [
-                {
-                  "val": "200",
-                  "offset": 13
-                }
-              ],
-              "location": "ExampleDefinitions.iShouldGetStatusCode(int)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 23795000,
-              "status": "passed"
-            },
-            "line": 32,
-            "name": "The value for the \"name\" after update operation should be \"morpheus\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "name",
-                  "offset": 19
-                },
-                {
-                  "val": "update",
-                  "offset": 31
-                },
-                {
-                  "val": "morpheus",
+                  "val": "available",
                   "offset": 59
                 }
               ],
-              "location": "ExampleDefinitions.theValueForTheAfterGetOperationShouldBe(String,String,String)"
+              "location": "PetExampleDefinitions.checkValueFromResponse(String,String,String)"
             },
             "keyword": "And "
-          }
-        ]
-      },
-      {
-        "before": [
-          {
-            "result": {
-              "duration": 19047500,
-              "status": "passed"
-            },
-            "match": {
-              "location": "ExampleDefinitions.startInfluxdb(Scenario)"
-            }
-          }
-        ],
-        "line": 39,
-        "name": "Delete an existing user",
-        "description": "",
-        "id": "basic-api-feature;delete-an-existing-user",
-        "after": [
-          {
-            "result": {
-              "duration": 63600,
-              "status": "passed"
-            },
-            "match": {
-              "location": "ExampleDefinitions.measureScenario(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 429323300,
-              "status": "passed"
-            },
-            "line": 40,
-            "name": "I request to delete a user by ID \"2\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "delete",
-                  "offset": 13
-                },
-                {
-                  "val": "2",
-                  "offset": 34
-                }
-              ],
-              "location": "ExampleDefinitions.iRequestOperUserByID(String,String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 4975200,
-              "status": "passed"
-            },
-            "line": 41,
-            "name": "I should get 204 status code",
-            "match": {
-              "arguments": [
-                {
-                  "val": "204",
-                  "offset": 13
-                }
-              ],
-              "location": "ExampleDefinitions.iShouldGetStatusCode(int)"
-            },
-            "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Basic API feature",
+    "name": "Testing petstore.swagger.io services",
     "description": "",
-    "id": "basic-api-feature",
+    "id": "testing-petstore.swagger.io-services",
     "keyword": "Feature",
-    "uri": "src/test/resources/features/Example.feature",
+    "uri": "src/test/resources/features/pet/Post.feature",
     "tags": []
   }
 ]
