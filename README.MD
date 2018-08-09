@@ -8,13 +8,15 @@ Tools used:
 - Intellij IDEA: is a whole Intellij IDEA project, build with gradle. An idea it's a very helpfull tool for big projects.  
 - Gradle: for build the project and make all the folders and settings to the project. Combined with intellij for download dependencies, they are so powerfull. 
 - REST Assured: libraries to testing and validate rest web services in Java. 
-- Github: to have a control version and share knowledge with rest of the world. 
+- Github: to have a control version and share knowledge with rest of the world.
+- Postman: tool for external testing of the service. Petstore and reqres have their own example to test their own services but if you want to test some external services which doesn't provide their own example or test services [Postman](https://www.getpostman.com/) solve this problem.
 
 ### Test cases implemented and tested
 
 Due to the large list of servicies offered by [Petstore](https://petstore.swagger.io/#/) it's a good idea to have some control of which services and test cases we have already coded:
 - [ ] **Pet services**
-    - [x] POST a new pet.
+    - [x] POST: insert a new pet into the store.
+    - [x] PUT: update the information about an existing pet into the store.
 
 - [ ] **Store services**
 
