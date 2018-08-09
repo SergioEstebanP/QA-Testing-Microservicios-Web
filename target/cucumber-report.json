@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 2929562117,
+              "duration": 3350225045,
               "status": "passed"
             },
             "match": {
@@ -14,14 +14,14 @@
             }
           }
         ],
-        "line": 10,
+        "line": 4,
         "name": "",
         "description": "",
-        "id": "testing-petstore.swagger.io-services;;;2",
+        "id": "testing-petstore.swagger.io-services;",
         "after": [
           {
             "result": {
-              "duration": 52907,
+              "duration": 53760,
               "status": "passed"
             },
             "match": {
@@ -30,26 +30,36 @@
           }
         ],
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 2220900410,
+              "duration": 1923907084,
               "status": "passed"
             },
-            "line": 4,
-            "name": "I request to post a pet stored in json file",
+            "line": 5,
+            "name": "I request to do \u0027delete\u0027 operation by 3603 id against the petStore service",
             "match": {
-              "location": "PetExampleDefinitions.iRequestToStoreAPetInJsonFile()"
+              "arguments": [
+                {
+                  "val": "delete",
+                  "offset": 17
+                },
+                {
+                  "val": "3603 id",
+                  "offset": 38
+                }
+              ],
+              "location": "PetExampleDefinitions.iRequestToDoOperationOperationByIdAgainstThePetStoreService(String,int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 14105582,
+              "duration": 82545388,
               "status": "passed"
             },
-            "line": 5,
+            "line": 6,
             "name": "I should get 200 status code",
             "match": {
               "arguments": [
@@ -61,32 +71,11 @@
               "location": "PetExampleDefinitions.iShouldGetStatusCode(int)"
             },
             "keyword": "Then "
-          },
+          }
+        ],
+        "tags": [
           {
-            "result": {
-              "duration": 528413617,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "The value for the \u0027status\u0027 after post operation should be \u0027available\u0027",
-            "match": {
-              "arguments": [
-                {
-                  "val": "status",
-                  "offset": 19
-                },
-                {
-                  "val": "post",
-                  "offset": 33
-                },
-                {
-                  "val": "available",
-                  "offset": 59
-                }
-              ],
-              "location": "PetExampleDefinitions.checkValueFromResponse(String,String,String)"
-            },
-            "keyword": "And "
+            "name": "@test"
           }
         ]
       }
@@ -95,7 +84,7 @@
     "description": "",
     "id": "testing-petstore.swagger.io-services",
     "keyword": "Feature",
-    "uri": "src/test/resources/features/pet/Post.feature",
+    "uri": "src/test/resources/features/pet/pet.feature",
     "tags": []
   }
 ]

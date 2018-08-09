@@ -36,9 +36,35 @@ public class PetExampleDefinitions {
      * Step definition: the user try to post a new pet on the store.
      *
      */
-    @When("^I request to post a pet stored in json file$")
-    public void iRequestToStoreAPetInJsonFile () {
-        PetExampleSteps.postNewPetOnStore();
+    @When("^I request to do '(.*)' operation against the petStore service$")
+    public void iRequestToStoreAPetInJsonFile (String operation) {
+        switch (operation.toLowerCase()){
+            case ("post"):
+                PetExampleSteps.postNewPetOnStore(operation);
+                break;
+            case ("put"):
+                PetExampleSteps.putNewInfoOnStore(operation);
+                break;
+            case ("get"):
+                PetExampleSteps.getInfoOfStore(operation);
+                break;
+        }
+    }
+
+    @When("^I request to do '(.*)' operation by (.*) against the petStore service$")
+    public void iRequestToDoOperationOperationByIdAgainstThePetStoreService(String operation, int id) {
+        switch (operation.toLowerCase()) {
+            case ("get"):
+                PetExampleSteps.getPetById(operation, id);
+                break;
+            case ("delete"):
+                PetExampleSteps.deletePetById(operation, id);
+                break;
+        }
+    }
+
+    @And("^I want to change the name to '(.*)' and the status to '(.*)'$")
+    public void iWantToChangeTheNameToBuguiAndTheStatusToSold(String name, String status) {
     }
 
     @Then("^I should get (.*) status code$")
@@ -46,7 +72,7 @@ public class PetExampleDefinitions {
         PetExampleSteps.verifyStatusCode(statusCode);
     }
 
-    @And ("^The value for the '(.*)' after (post) operation should be '(.*)'$")
+    @And ("^The value for the '(.*)' after '(.*)' operation should be '(.*)'$")
     public void checkValueFromResponse (String identifier, String operation, String value) {
         Response res = Serenity.sessionVariableCalled("response");
         PetExampleSteps.checkValueFromResponse(res, operation, identifier, value);
@@ -69,5 +95,6 @@ public class PetExampleDefinitions {
         }
 
     }
+
 
 }
