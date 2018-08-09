@@ -1,0 +1,90 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 3350225045,
+              "status": "passed"
+            },
+            "match": {
+              "location": "PetExampleDefinitions.startInfluxdb(Scenario)"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "",
+        "description": "",
+        "id": "testing-petstore.swagger.io-services;",
+        "after": [
+          {
+            "result": {
+              "duration": 53760,
+              "status": "passed"
+            },
+            "match": {
+              "location": "PetExampleDefinitions.measureScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1923907084,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I request to do \u0027delete\u0027 operation by 3603 id against the petStore service",
+            "match": {
+              "arguments": [
+                {
+                  "val": "delete",
+                  "offset": 17
+                },
+                {
+                  "val": "3603 id",
+                  "offset": 38
+                }
+              ],
+              "location": "PetExampleDefinitions.iRequestToDoOperationOperationByIdAgainstThePetStoreService(String,int)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 82545388,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I should get 200 status code",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 13
+                }
+              ],
+              "location": "PetExampleDefinitions.iShouldGetStatusCode(int)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      }
+    ],
+    "name": "Testing petstore.swagger.io services",
+    "description": "",
+    "id": "testing-petstore.swagger.io-services",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/pet/pet.feature",
+    "tags": []
+  }
+]
