@@ -5,11 +5,11 @@ In this respository you'll find an INtellij IDEA complete project with all neces
 ### Tools used in the project
 
 Tools used: 
-- Intellij IDEA: is a whole Intellij IDEA project, build with gradle. An idea it's a very helpfull tool for big projects.  
-- Gradle: for build the project and make all the folders and settings to the project. Combined with intellij for download dependencies, they are so powerfull. 
-- REST Assured: libraries to testing and validate rest web services in Java. 
-- Github: to have a control version and share knowledge with rest of the world.
-- Postman: tool for external testing of the service. Petstore and reqres have their own example to test their own services but if you want to test some external services which doesn't provide their own example or test services [Postman](https://www.getpostman.com/) solve this problem.
+- **Intellij IDEA**: is a whole Intellij IDEA project, build with gradle. An idea it's a very helpfull tool for big projects. [IntelliJ Download Link](https://www.jetbrains.com/idea/specials/idea/idea.html?gclid=Cj0KCQjwzK_bBRDDARIsAFQF7zMIw8FQqRbn46RVJhQzoM-1860BeNx3_4yiXXsMEYp8pmnr6hhLjQYaAlSgEALw_wcB&gclsrc=aw.ds.ds&dclid=COqFvuuB4NwCFUtj0wodcTkJSQ).
+- **Gradle**: for build the project and make all the folders and settings to the project. Combined with intellij for download dependencies, they are so powerfull. [Gradle Documentation](https://gradle.org/).
+- **REST Assured**: libraries to testing and validate rest web services in Java. [REST Assured Documentation](http://rest-assured.io/).
+- **Github**: to have a control version and share knowledge with rest of the world. [Github Documentation](https://github.com/).
+- **Postman**: tool for external testing of the service. Petstore and reqres have their own example to test their own services but if you want to test some external services which doesn't provide their own example or test services [Postman Download Link](https://www.getpostman.com/) solve this problem.
 
 ### Test cases implemented and tested
 
@@ -29,7 +29,6 @@ Due to the large list of servicies offered by [Petstore](https://petstore.swagge
     - [x] GET /store/order/{orderId}: finds purchased orders by id.
     - [x] DELETE /store/order/{orderId}: delete purchased order by id.
 
-
 - [ ] **User services**:
     - [x] POST /user: create a user.
     - [ ] POST /user/createWithArray: creates list of user with given input array.
@@ -39,7 +38,6 @@ Due to the large list of servicies offered by [Petstore](https://petstore.swagge
     - [x] GET /user/{username}: get user by username.
     - [x] PUT /user/{username}: update user.
     - [x] DELETE /user/{username}: delete user.
-
 
 ## Project Description and example of use
 
