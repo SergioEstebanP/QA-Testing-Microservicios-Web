@@ -14,7 +14,7 @@ Tools used:
 ### Test cases implemented and tested
 
 Due to the large list of servicies offered by [Petstore](https://petstore.swagger.io/#/) it's a good idea to have some control of which services and test cases we have already coded:
-- [ ] **Pet services**
+- [ ] **Pet services**:
     - [x] POST /pet: insert a new pet into the store.
     - [x] PUT /pet: update the information about an existing pet into the store.
     - [x] GET /pet/findByStatus: retrieve information from the server filtered by the status.
@@ -23,6 +23,12 @@ Due to the large list of servicies offered by [Petstore](https://petstore.swagge
     - [x] DELETE /pet/{petId}: deletes a pet by its id.
     - [ ] POST /pet/{petId}/uploadImage: updates name, status and image information of the given pet's id into the server.
 
-- [ ] **Store services**
+- [ ] **Store services**:
+    - [x] GET /store/inventory: returns pet inventories by status.
+    - [ ] POST /store/order: place an order for a pet.
+    - [ ] GET /store/order/{orderId}: finds purchased orders by id.
+    - [ ] DELETE /store/order/{orderId}: delete purchased order by id.
 
-- [ ] **User services**
+
+- [ ] **User services**:
+    - [ ] POST /user: create a user.

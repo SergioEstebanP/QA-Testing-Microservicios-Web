@@ -62,6 +62,18 @@ public class PetExampleSteps {
     }
 
     /**
+     * Performs a PUT operation with the given pet in json file, and it will update the information on the server store
+     *
+     * @param operation String with the specified operation in cucumber
+     */
+    @Step
+    public void updateInfoById(String operation, int id) {
+        endpoint = getEndPoint() + "/" + Integer.toString(id);
+        Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), endpoint);
+        Serenity.setSessionVariable("response").to(response);
+    }
+
+    /**
      * Performs a GET operation into the server retrieving some information off it.
      *
      * @param operation String with the specified operation in cucumber

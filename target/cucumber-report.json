@@ -6,61 +6,75 @@
         "before": [
           {
             "result": {
-              "duration": 3350225045,
+              "duration": 2642947870,
               "status": "passed"
             },
             "match": {
               "location": "PetExampleDefinitions.startInfluxdb(Scenario)"
             }
+          },
+          {
+            "result": {
+              "duration": 18803602,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StoreExampleDefinitions.startInfluxdb(Scenario)"
+            }
           }
         ],
-        "line": 4,
+        "line": 11,
         "name": "",
         "description": "",
-        "id": "testing-petstore.swagger.io-services;",
+        "id": "testing-petstore.swagger.io-services-related-to-store-services;;;2",
         "after": [
           {
             "result": {
-              "duration": 53760,
+              "duration": 59306,
               "status": "passed"
             },
             "match": {
               "location": "PetExampleDefinitions.measureScenario(Scenario)"
             }
+          },
+          {
+            "result": {
+              "duration": 34987,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StoreExampleDefinitions.measureScenario(Scenario)"
+            }
           }
         ],
         "type": "scenario",
-        "keyword": "Scenario",
+        "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 1923907084,
+              "duration": 2343354441,
               "status": "passed"
             },
             "line": 5,
-            "name": "I request to do \u0027delete\u0027 operation by 3603 id against the petStore service",
+            "name": "I request to do \u0027get\u0027 operation against the petStore store service",
             "match": {
               "arguments": [
                 {
-                  "val": "delete",
+                  "val": "get",
                   "offset": 17
-                },
-                {
-                  "val": "3603 id",
-                  "offset": 38
                 }
               ],
-              "location": "PetExampleDefinitions.iRequestToDoOperationOperationByIdAgainstThePetStoreService(String,int)"
+              "location": "StoreExampleDefinitions.iRequestToDoOperationOperationAgainstThePetStoreStoreService(String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 82545388,
+              "duration": 6891085,
               "status": "passed"
             },
             "line": 6,
-            "name": "I should get 200 status code",
+            "name": "I should get 200 status store code",
             "match": {
               "arguments": [
                 {
@@ -68,9 +82,35 @@
                   "offset": 13
                 }
               ],
-              "location": "PetExampleDefinitions.iShouldGetStatusCode(int)"
+              "location": "StoreExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(int)"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 482690369,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "The value for the \u0027status\u0027 after the \u0027get\u0027 should be \u00276\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "status",
+                  "offset": 19
+                },
+                {
+                  "val": "get",
+                  "offset": 38
+                },
+                {
+                  "val": "6",
+                  "offset": 54
+                }
+              ],
+              "location": "StoreExampleDefinitions.theForTheKeyAfterTheOperationShouldBeValue(String,String,String)"
+            },
+            "keyword": "And "
           }
         ],
         "tags": [
@@ -80,11 +120,11 @@
         ]
       }
     ],
-    "name": "Testing petstore.swagger.io services",
+    "name": "Testing petstore.swagger.io services related to store services",
     "description": "",
-    "id": "testing-petstore.swagger.io-services",
+    "id": "testing-petstore.swagger.io-services-related-to-store-services",
     "keyword": "Feature",
-    "uri": "src/test/resources/features/pet/pet.feature",
+    "uri": "src/test/resources/features/store/store.feature",
     "tags": []
   }
 ]
