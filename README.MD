@@ -39,3 +39,19 @@ Due to the large list of servicies offered by [Petstore](https://petstore.swagge
     - [x] GET /user/{username}: get user by username.
     - [x] PUT /user/{username}: update user.
     - [x] DELETE /user/{username}: delete user.
+
+
+## Project Description and example of use
+
+### Project Configuration
+
+First of all you have to clone or download the repository to your local machine. To clone it you have to enter this command:
+```$ git clone https://github.com/SergioEstebanP/QA-Testing-Microservicios-Web.git```
+
+Once you have it in your pc open Intellij IDEA and import the project:
+![alt intellijImport](readmeDocs/intellijImport)
+
+If you want you can open the project as a folder, you only have to select the folder with the project.
+
+Once you have the project opened you must run the project and it's possible that you have to set up some intellij IDEA configurations before run it.
+
