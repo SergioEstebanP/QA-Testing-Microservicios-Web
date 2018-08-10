@@ -64,3 +64,14 @@ Now you have a running version of the program. This code is designed to automati
 #### Cucumber and Gherkin
 
 The main idea of the BDD is design the scenario of use to some program and play click to test it. First of all I use [Cucumber](https://docs.cucumber.io/) to describe these scenarios of use. Cucumber allows to write in simple and natural language a scenario of use for a program. These api provide tons of languages to write the scenarios, in this case I'll use English due to the languge use in the guide!.
+
+Cucumber use the Gherkin Syntax, knwon as **Given, When, Then**. Which means:
+- *Given*: some precondition to the program.
+- *When*: the program perform some actions.
+- *Then*: a given result must be validated.
+
+This is the base of BDD.
+
+The cucumber files are saved in .feature files. One of this files, for example is: [pet.feature](src/test/resources/features/pet/pte.features) , which looks like this:
+
+
