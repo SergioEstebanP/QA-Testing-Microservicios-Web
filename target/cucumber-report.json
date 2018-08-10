@@ -6,61 +6,98 @@
         "before": [
           {
             "result": {
-              "duration": 3350225045,
+              "duration": 2666178134,
+              "status": "passed"
+            },
+            "match": {
+              "location": "UserExampleDefinitions.startInfluxdb(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 25232181,
               "status": "passed"
             },
             "match": {
               "location": "PetExampleDefinitions.startInfluxdb(Scenario)"
             }
+          },
+          {
+            "result": {
+              "duration": 12989423,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StoreExampleDefinitions.startInfluxdb(Scenario)"
+            }
           }
         ],
-        "line": 4,
+        "line": 12,
         "name": "",
         "description": "",
-        "id": "testing-petstore.swagger.io-services;",
+        "id": "testing-petstore.swagger.io-services-related-to-user-services;;;2",
         "after": [
           {
             "result": {
-              "duration": 53760,
+              "duration": 58026,
+              "status": "passed"
+            },
+            "match": {
+              "location": "UserExampleDefinitions.measureScenario(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 62293,
               "status": "passed"
             },
             "match": {
               "location": "PetExampleDefinitions.measureScenario(Scenario)"
             }
+          },
+          {
+            "result": {
+              "duration": 37120,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StoreExampleDefinitions.measureScenario(Scenario)"
+            }
           }
         ],
         "type": "scenario",
-        "keyword": "Scenario",
+        "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 1923907084,
+              "duration": 229562159,
               "status": "passed"
             },
-            "line": 5,
-            "name": "I request to do \u0027delete\u0027 operation by 3603 id against the petStore service",
+            "line": 6,
+            "name": "I request to do \u0027createList\u0027 \u0027post\u0027 operation against the petStore user service",
             "match": {
               "arguments": [
                 {
-                  "val": "delete",
+                  "val": "createList",
                   "offset": 17
                 },
                 {
-                  "val": "3603 id",
-                  "offset": 38
+                  "val": "post",
+                  "offset": 30
                 }
               ],
-              "location": "PetExampleDefinitions.iRequestToDoOperationOperationByIdAgainstThePetStoreService(String,int)"
+              "location": "UserExampleDefinitions.iRequestToDoOperationOperationAgainstThePetStoreUserService(String,String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 82545388,
-              "status": "passed"
+              "error_message": "java.lang.NullPointerException\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps.checkStatusCode(UserExampleSteps.java:43)\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps$$EnhancerByCGLIB$$4de8d101.CGLIB$checkStatusCode$3(\u003cgenerated\u003e)\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps$$EnhancerByCGLIB$$4de8d101$$FastClassByCGLIB$$50f7a840.invoke(\u003cgenerated\u003e)\r\n\tat net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)\r\n\tat net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:449)\r\n\tat net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:434)\r\n\tat net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:409)\r\n\tat net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:150)\r\n\tat net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:137)\r\n\tat net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:68)\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps$$EnhancerByCGLIB$$4de8d101.checkStatusCode(\u003cgenerated\u003e)\r\n\tat com.adidas.gherkinDefinitions.userDefinitions.UserExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(UserExampleDefinitions.java:75)\r\n\tat ✽.I should get 200 status user code(src/test/resources/features/user/user.feature:7)\r\n",
+              "duration": 20961680,
+              "status": "failed"
             },
-            "line": 6,
-            "name": "I should get 200 status code",
+            "line": 7,
+            "name": "I should get 200 status user code",
             "match": {
               "arguments": [
                 {
@@ -68,9 +105,34 @@
                   "offset": 13
                 }
               ],
-              "location": "PetExampleDefinitions.iShouldGetStatusCode(int)"
+              "location": "UserExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(int)"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "The user value for the \u0027id\u0027 after the \u0027post\u0027 should be \u00272311\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 24
+                },
+                {
+                  "val": "post",
+                  "offset": 39
+                },
+                {
+                  "val": "2311",
+                  "offset": 56
+                }
+              ],
+              "location": "UserExampleDefinitions.theForTheKeyAfterTheOperationShouldBeValue(String,String,String)"
+            },
+            "keyword": "And "
           }
         ],
         "tags": [
@@ -80,11 +142,11 @@
         ]
       }
     ],
-    "name": "Testing petstore.swagger.io services",
+    "name": "Testing petstore.swagger.io services related to user services",
     "description": "",
-    "id": "testing-petstore.swagger.io-services",
+    "id": "testing-petstore.swagger.io-services-related-to-user-services",
     "keyword": "Feature",
-    "uri": "src/test/resources/features/pet/pet.feature",
+    "uri": "src/test/resources/features/user/user.feature",
     "tags": []
   }
 ]

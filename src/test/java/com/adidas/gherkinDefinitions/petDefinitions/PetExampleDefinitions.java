@@ -1,7 +1,6 @@
 package com.adidas.gherkinDefinitions.petDefinitions;
 
 import com.adidas.influxdb.InfluxDBIntegration;
-import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -59,6 +58,9 @@ public class PetExampleDefinitions {
                 break;
             case ("delete"):
                 PetExampleSteps.deletePetById(operation, id);
+                break;
+            case ("post"):
+                PetExampleSteps.updateInfoById(operation, id);
                 break;
         }
     }

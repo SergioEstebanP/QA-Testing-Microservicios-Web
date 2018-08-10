@@ -1,4 +1,10 @@
 {
-  "name": "morpheus",
-  "job": "leader"
+  "id": 2312,
+  "username": "antimateria",
+  "firstName": "antimateria",
+  "lastName": "antimateria",
+  "email": "antimateria",
+  "password": "antimateria",
+  "phone": "antimateria",
+  "userStatus": 5
 }
