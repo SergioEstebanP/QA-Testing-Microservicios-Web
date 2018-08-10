@@ -19,7 +19,6 @@ Feature: Testing petstore.swagger.io services related to store services
       | operation | id | expectedStatusCode | key | operation | value |
       | get       | 1  | 200                | id  | get       | 1     |
 
-  @test
   Scenario Outline:
     When I request to do '<operation>' operation by <id> against the petStore store service
     Then I should get <expectedStatusCode> status store code

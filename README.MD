@@ -31,4 +31,11 @@ Due to the large list of servicies offered by [Petstore](https://petstore.swagge
 
 
 - [ ] **User services**:
-    - [ ] POST /user: create a user.
+    - [x] POST /user: create a user.
+    - [x] POST /user/createWithArray: creates list of user with given input array.
+    - [ ] POST /user/createWithList: creates list of user with given input list.
+    - [x] GET /user/login: log user into the system.
+    - [x] GET /user/logout: logout current logged in user session.
+    - [x] GET /user/{username}: get user by username.
+    - [x] PUT /user/{username}: update user.
+    - [x] DELETE /user/{username}: delete user.

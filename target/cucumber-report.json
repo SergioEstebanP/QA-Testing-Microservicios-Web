@@ -6,7 +6,16 @@
         "before": [
           {
             "result": {
-              "duration": 3029943428,
+              "duration": 2666178134,
+              "status": "passed"
+            },
+            "match": {
+              "location": "UserExampleDefinitions.startInfluxdb(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 25232181,
               "status": "passed"
             },
             "match": {
@@ -15,7 +24,7 @@
           },
           {
             "result": {
-              "duration": 11830598,
+              "duration": 12989423,
               "status": "passed"
             },
             "match": {
@@ -23,14 +32,23 @@
             }
           }
         ],
-        "line": 29,
+        "line": 12,
         "name": "",
         "description": "",
-        "id": "testing-petstore.swagger.io-services-related-to-store-services;;;2",
+        "id": "testing-petstore.swagger.io-services-related-to-user-services;;;2",
         "after": [
           {
             "result": {
-              "duration": 60159,
+              "duration": 58026,
+              "status": "passed"
+            },
+            "match": {
+              "location": "UserExampleDefinitions.measureScenario(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 62293,
               "status": "passed"
             },
             "match": {
@@ -39,7 +57,7 @@
           },
           {
             "result": {
-              "duration": 53760,
+              "duration": 37120,
               "status": "passed"
             },
             "match": {
@@ -52,34 +70,34 @@
         "steps": [
           {
             "result": {
-              "duration": 2418978877,
+              "duration": 229562159,
               "status": "passed"
             },
-            "line": 24,
-            "name": "I request to do \u0027delete\u0027 operation by 1 against the petStore store service",
+            "line": 6,
+            "name": "I request to do \u0027createList\u0027 \u0027post\u0027 operation against the petStore user service",
             "match": {
               "arguments": [
                 {
-                  "val": "delete",
+                  "val": "createList",
                   "offset": 17
                 },
                 {
-                  "val": "1",
-                  "offset": 38
+                  "val": "post",
+                  "offset": 30
                 }
               ],
-              "location": "StoreExampleDefinitions.iRequestToDoOperationOperationByIdAgainstThePetStoreStoreService(String,int)"
+              "location": "UserExampleDefinitions.iRequestToDoOperationOperationAgainstThePetStoreUserService(String,String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: The status code is incorrect, something in the operation went wrong expected:\u003c200\u003e but was:\u003c404\u003e\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.failNotEquals(Assert.java:834)\r\n\tat org.junit.Assert.assertEquals(Assert.java:645)\r\n\tat com.adidas.serenitySteps.storeSteps.StoreExampleSteps.checkStatusCode(StoreExampleSteps.java:39)\r\n\tat com.adidas.serenitySteps.storeSteps.StoreExampleSteps$$EnhancerByCGLIB$$6378d2f5.CGLIB$checkStatusCode$2(\u003cgenerated\u003e)\r\n\tat com.adidas.serenitySteps.storeSteps.StoreExampleSteps$$EnhancerByCGLIB$$6378d2f5$$FastClassByCGLIB$$200e0ee.invoke(\u003cgenerated\u003e)\r\n\tat net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)\r\n\tat net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:449)\r\n\tat net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:434)\r\n\tat net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:409)\r\n\tat net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:150)\r\n\tat net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:137)\r\n\tat net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:68)\r\n\tat com.adidas.serenitySteps.storeSteps.StoreExampleSteps$$EnhancerByCGLIB$$6378d2f5.checkStatusCode(\u003cgenerated\u003e)\r\n\tat com.adidas.gherkinDefinitions.storeDefinitions.StoreExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(StoreExampleDefinitions.java:67)\r\n\tat ✽.I should get 200 status store code(src/test/resources/features/store/store.feature:25)\r\n",
-              "duration": 12212891,
+              "error_message": "java.lang.NullPointerException\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps.checkStatusCode(UserExampleSteps.java:43)\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps$$EnhancerByCGLIB$$4de8d101.CGLIB$checkStatusCode$3(\u003cgenerated\u003e)\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps$$EnhancerByCGLIB$$4de8d101$$FastClassByCGLIB$$50f7a840.invoke(\u003cgenerated\u003e)\r\n\tat net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)\r\n\tat net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:449)\r\n\tat net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:434)\r\n\tat net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:409)\r\n\tat net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:150)\r\n\tat net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:137)\r\n\tat net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:68)\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps$$EnhancerByCGLIB$$4de8d101.checkStatusCode(\u003cgenerated\u003e)\r\n\tat com.adidas.gherkinDefinitions.userDefinitions.UserExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(UserExampleDefinitions.java:75)\r\n\tat ✽.I should get 200 status user code(src/test/resources/features/user/user.feature:7)\r\n",
+              "duration": 20961680,
               "status": "failed"
             },
-            "line": 25,
-            "name": "I should get 200 status store code",
+            "line": 7,
+            "name": "I should get 200 status user code",
             "match": {
               "arguments": [
                 {
@@ -87,9 +105,34 @@
                   "offset": 13
                 }
               ],
-              "location": "StoreExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(int)"
+              "location": "UserExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(int)"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "The user value for the \u0027id\u0027 after the \u0027post\u0027 should be \u00272311\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 24
+                },
+                {
+                  "val": "post",
+                  "offset": 39
+                },
+                {
+                  "val": "2311",
+                  "offset": 56
+                }
+              ],
+              "location": "UserExampleDefinitions.theForTheKeyAfterTheOperationShouldBeValue(String,String,String)"
+            },
+            "keyword": "And "
           }
         ],
         "tags": [
@@ -99,11 +142,11 @@
         ]
       }
     ],
-    "name": "Testing petstore.swagger.io services related to store services",
+    "name": "Testing petstore.swagger.io services related to user services",
     "description": "",
-    "id": "testing-petstore.swagger.io-services-related-to-store-services",
+    "id": "testing-petstore.swagger.io-services-related-to-user-services",
     "keyword": "Feature",
-    "uri": "src/test/resources/features/store/store.feature",
+    "uri": "src/test/resources/features/user/user.feature",
     "tags": []
   }
 ]

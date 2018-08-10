@@ -1,8 +1,10 @@
-package com.adidas.gherkinDefinitions.storeDefinitions;
+package com.adidas.gherkinDefinitions.userDefinitions;
 
 
 import com.adidas.influxdb.InfluxDBIntegration;
 import com.adidas.serenitySteps.storeSteps.StoreExampleSteps;
+import com.adidas.serenitySteps.userSteps.UserExampleSteps;
+import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -15,7 +17,7 @@ import net.thucydides.core.annotations.Steps;
 
 import java.util.Calendar;
 
-public class StoreExampleDefinitions {
+public class UserExampleDefinitions {
 
     /**
      * Method executed before each scenario to start measuring execution times
@@ -28,20 +30,27 @@ public class StoreExampleDefinitions {
             Serenity.setSessionVariable("startTime").to(Calendar.getInstance());
     }
 
-    @When("^I request to do '(.*)' operation against the petStore store service$")
-    public void iRequestToDoOperationOperationAgainstThePetStoreStoreService(String operation) {
+    @When("^I request to do '(.*)' '(.*)' operation against the petStore user service$")
+    public void iRequestToDoOperationOperationAgainstThePetStoreUserService(String operationUser, String operation) {
         switch (operation) {
-            case ("get"):
-                StoreExampleSteps.getInfoOfStore(operation);
-                break;
             case ("post"):
-                StoreExampleSteps.orderPetInStore(operation);
+                switch (operationUser) {
+                    case ("create"):
+                        userExampleSteps.createUser(operation);
+                        break;
+                    case ("createList"):
+                        userExampleSteps.createUserList(operation);
+                        break;
+                }
+                break;
+            case ("get"):
+                userExampleSteps.logoutUser(operation);
                 break;
         }
     }
 
     @Steps
-    private StoreExampleSteps StoreExampleSteps;
+    private UserExampleSteps userExampleSteps;
 
     /**
      * Method executed after each scenario to write execution times on InfluxDB
@@ -61,25 +70,33 @@ public class StoreExampleDefinitions {
 
     }
 
-    @Then("^I should get (.*) status store code$")
+    @Then("^I should get (.*) status user code$")
     public void iShouldGetExpectedStatusCodeStatusStoreCode(int statusCode) {
-        StoreExampleSteps.checkStatusCode(statusCode);
+        userExampleSteps.checkStatusCode(statusCode);
     }
 
-    @And("^The value for the '(.*)' after the '(.*)' should be '(.*)'$")
+    @And("^The user value for the '(.*)' after the '(.*)' should be '(.*)'$")
     public void theForTheKeyAfterTheOperationShouldBeValue(String key, String operation, String value) {
         Response res = Serenity.sessionVariableCalled("response");
-        StoreExampleSteps.verifyResultsOperation(res, key, operation, value);
+        userExampleSteps.verifyResultsOperation(res, key, operation, value);
     }
 
-    @When("^I request to do '(.*)' operation by (.*) against the petStore store service$")
-    public void iRequestToDoOperationOperationByIdAgainstThePetStoreStoreService(String operation, int id) {
-        switch (operation.toLowerCase()) {
+    @When("^I request to do '(.*)' operation against the petStore user service to login '(.*)' '(.*)'$")
+    public void iRequestToDoOperationOperationAgainstThePetStoreUserServiceToLoginUserPasswd(String operation, String user, String passwd) {
+        userExampleSteps.loginUser(operation, user, passwd);
+    }
+
+    @When("^I request to do '(.*)' operation against the petStore user service to login '(.*)'$")
+    public void iRequestToDoOperationOperationAgainstThePetStoreUserServiceToLoginUser(String operation, String name) {
+        switch (operation) {
+            case ("put"):
+                userExampleSteps.updateUser(operation, name);
+                break;
             case ("get"):
-            StoreExampleSteps.getOrderInfoById(operation, id);
-            break;
+                userExampleSteps.getByName(operation, name);
+                break;
             case ("delete"):
-                StoreExampleSteps.deleteOrderInfoById(operation, id);
+                userExampleSteps.deleteByName(operation, name);
                 break;
         }
     }
