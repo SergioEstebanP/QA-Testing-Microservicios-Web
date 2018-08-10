@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 2642947870,
+              "duration": 3029943428,
               "status": "passed"
             },
             "match": {
@@ -15,7 +15,7 @@
           },
           {
             "result": {
-              "duration": 18803602,
+              "duration": 11830598,
               "status": "passed"
             },
             "match": {
@@ -23,14 +23,14 @@
             }
           }
         ],
-        "line": 11,
+        "line": 29,
         "name": "",
         "description": "",
         "id": "testing-petstore.swagger.io-services-related-to-store-services;;;2",
         "after": [
           {
             "result": {
-              "duration": 59306,
+              "duration": 60159,
               "status": "passed"
             },
             "match": {
@@ -39,7 +39,7 @@
           },
           {
             "result": {
-              "duration": 34987,
+              "duration": 53760,
               "status": "passed"
             },
             "match": {
@@ -52,28 +52,33 @@
         "steps": [
           {
             "result": {
-              "duration": 2343354441,
+              "duration": 2418978877,
               "status": "passed"
             },
-            "line": 5,
-            "name": "I request to do \u0027get\u0027 operation against the petStore store service",
+            "line": 24,
+            "name": "I request to do \u0027delete\u0027 operation by 1 against the petStore store service",
             "match": {
               "arguments": [
                 {
-                  "val": "get",
+                  "val": "delete",
                   "offset": 17
+                },
+                {
+                  "val": "1",
+                  "offset": 38
                 }
               ],
-              "location": "StoreExampleDefinitions.iRequestToDoOperationOperationAgainstThePetStoreStoreService(String)"
+              "location": "StoreExampleDefinitions.iRequestToDoOperationOperationByIdAgainstThePetStoreStoreService(String,int)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 6891085,
-              "status": "passed"
+              "error_message": "java.lang.AssertionError: The status code is incorrect, something in the operation went wrong expected:\u003c200\u003e but was:\u003c404\u003e\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.failNotEquals(Assert.java:834)\r\n\tat org.junit.Assert.assertEquals(Assert.java:645)\r\n\tat com.adidas.serenitySteps.storeSteps.StoreExampleSteps.checkStatusCode(StoreExampleSteps.java:39)\r\n\tat com.adidas.serenitySteps.storeSteps.StoreExampleSteps$$EnhancerByCGLIB$$6378d2f5.CGLIB$checkStatusCode$2(\u003cgenerated\u003e)\r\n\tat com.adidas.serenitySteps.storeSteps.StoreExampleSteps$$EnhancerByCGLIB$$6378d2f5$$FastClassByCGLIB$$200e0ee.invoke(\u003cgenerated\u003e)\r\n\tat net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)\r\n\tat net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:449)\r\n\tat net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:434)\r\n\tat net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:409)\r\n\tat net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:150)\r\n\tat net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:137)\r\n\tat net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:68)\r\n\tat com.adidas.serenitySteps.storeSteps.StoreExampleSteps$$EnhancerByCGLIB$$6378d2f5.checkStatusCode(\u003cgenerated\u003e)\r\n\tat com.adidas.gherkinDefinitions.storeDefinitions.StoreExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(StoreExampleDefinitions.java:67)\r\n\tat ✽.I should get 200 status store code(src/test/resources/features/store/store.feature:25)\r\n",
+              "duration": 12212891,
+              "status": "failed"
             },
-            "line": 6,
+            "line": 25,
             "name": "I should get 200 status store code",
             "match": {
               "arguments": [
@@ -85,32 +90,6 @@
               "location": "StoreExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(int)"
             },
             "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 482690369,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "The value for the \u0027status\u0027 after the \u0027get\u0027 should be \u00276\u0027",
-            "match": {
-              "arguments": [
-                {
-                  "val": "status",
-                  "offset": 19
-                },
-                {
-                  "val": "get",
-                  "offset": 38
-                },
-                {
-                  "val": "6",
-                  "offset": 54
-                }
-              ],
-              "location": "StoreExampleDefinitions.theForTheKeyAfterTheOperationShouldBeValue(String,String,String)"
-            },
-            "keyword": "And "
           }
         ],
         "tags": [

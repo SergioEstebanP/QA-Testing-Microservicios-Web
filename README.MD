@@ -23,11 +23,11 @@ Due to the large list of servicies offered by [Petstore](https://petstore.swagge
     - [x] DELETE /pet/{petId}: deletes a pet by its id.
     - [ ] POST /pet/{petId}/uploadImage: updates name, status and image information of the given pet's id into the server.
 
-- [ ] **Store services**:
+- [x] **Store services**:
     - [x] GET /store/inventory: returns pet inventories by status.
-    - [ ] POST /store/order: place an order for a pet.
-    - [ ] GET /store/order/{orderId}: finds purchased orders by id.
-    - [ ] DELETE /store/order/{orderId}: delete purchased order by id.
+    - [x] POST /store/order: place an order for a pet.
+    - [x] GET /store/order/{orderId}: finds purchased orders by id.
+    - [x] DELETE /store/order/{orderId}: delete purchased order by id.
 
 
 - [ ] **User services**:

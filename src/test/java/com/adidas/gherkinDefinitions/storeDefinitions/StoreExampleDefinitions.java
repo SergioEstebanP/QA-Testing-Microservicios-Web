@@ -3,6 +3,7 @@ package com.adidas.gherkinDefinitions.storeDefinitions;
 
 import com.adidas.influxdb.InfluxDBIntegration;
 import com.adidas.serenitySteps.storeSteps.StoreExampleSteps;
+import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -33,6 +34,9 @@ public class StoreExampleDefinitions {
         switch (operation) {
             case ("get"):
                 StoreExampleSteps.getInfoOfStore(operation);
+                break;
+            case ("post"):
+                StoreExampleSteps.orderPetInStore(operation);
                 break;
         }
     }
@@ -67,5 +71,17 @@ public class StoreExampleDefinitions {
     public void theForTheKeyAfterTheOperationShouldBeValue(String key, String operation, String value) {
         Response res = Serenity.sessionVariableCalled("response");
         StoreExampleSteps.verifyResultsOperation(res, key, operation, value);
+    }
+
+    @When("^I request to do '(.*)' operation by (.*) against the petStore store service$")
+    public void iRequestToDoOperationOperationByIdAgainstThePetStoreStoreService(String operation, int id) {
+        switch (operation.toLowerCase()) {
+            case ("get"):
+            StoreExampleSteps.getOrderInfoById(operation, id);
+            break;
+            case ("delete"):
+                StoreExampleSteps.deleteOrderInfoById(operation, id);
+                break;
+        }
     }
 }

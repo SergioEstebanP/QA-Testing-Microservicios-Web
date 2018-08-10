@@ -82,7 +82,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 10-08-2018 10:38</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 10-08-2018 11:11</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -129,9 +129,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><i class='fa fa-check-square-o success-icon fa-2x' title='SUCCESS'></i></span>
+                            <span class="outcome-icon"><i class='fa fa-times-circle failure-icon fa-2x' title='FAILURE'></i></span>
                             <span class="test-case-title">
-                                    <span class="success-color">
+                                    <span class="failing-color">
                                     
                                         <span class="related-issue-title"></span>
                                 </span>
@@ -151,7 +151,7 @@
     <div class="story-title">
         <h3 class="story-header">Scenario Outline</h3>
 
-        <div class="scenario">When I request to do '&lt;operation&gt;' operation against the petStore store service<br>Then I should get &lt;expectedStatusCode&gt; status store code<br>And The value for the '&lt;key&gt;' after the '&lt;operation&gt;' should be '&lt;value&gt;'</div>
+        <div class="scenario">When I request to do '&lt;operation&gt;' operation by &lt;id&gt; against the petStore store service<br>Then I should get &lt;expectedStatusCode&gt; status store code</div>
 
     </div>
 
@@ -170,24 +170,18 @@
                 <tr>
                     <th>#</th>
                         <th>Operation</th>
+                        <th>Id</th>
                         <th>Expectedstatuscode</th>
-                        <th>Key</th>
-                        <th>Operation</th>
-                        <th>Value</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="test-SUCCESS"><a href="#0">1</a></td>
-                            <td class="test-SUCCESS"><a href="#0">get</a>
+                        <td class="test-FAILURE"><a href="#0">1</a></td>
+                            <td class="test-FAILURE"><a href="#0">delete</a>
                             </td>
-                            <td class="test-SUCCESS"><a href="#0">200</a>
+                            <td class="test-FAILURE"><a href="#0">1</a>
                             </td>
-                            <td class="test-SUCCESS"><a href="#0">status</a>
-                            </td>
-                            <td class="test-SUCCESS"><a href="#0">get</a>
-                            </td>
-                            <td class="test-SUCCESS"><a href="#0">6</a>
+                            <td class="test-FAILURE"><a href="#0">200</a>
                             </td>
                     </tr>
                 </tbody>
@@ -210,12 +204,12 @@
                 <tr class="step-table-separator">
                     <td colspan="5"></td>
                 </tr>
-                <tr class="test-SUCCESS">
+                <tr class="test-FAILURE">
                     <td width="60" class="step-icon">
                         <a name="0"/>
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
                                style="display:block">
-                                <i class="fa fa-plus-square-o imgstepSection0 success-icon"
+                                <i class="fa fa-plus-square-o imgstepSection0 failure-icon"
                                    style="margin-left: 20px; float:left;  padding-right:5px"></i>
                             </a>
                     </td>
@@ -224,13 +218,13 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection0')"
                                style="display:block;">
                             <span class="top-level-step">
-                                #1: {operation=get, expectedStatusCode=200, key=status, value=6}
+                                #1: {operation=delete, id=1, expectedStatusCode=200}
                             </span>
                             </a>
 
                         </div>
                     </td>
-                    <td width="100"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">FAILURE</span></td>
                     <td width="100"><span class="top-level-step">5.52s</span></td>
                 </tr>
                     <tr>
@@ -246,13 +240,13 @@
                     <td>
                         <div class="step-description">
                             <span class="nested-step">
-                                When I request to do 'get' operation against the petStore store service
+                                When I request to do 'delete' operation by 1 against the petStore store service
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">2.34s</span></td>
+                    <td width="100"><span class="nested-step">2.42s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="60" class="step-icon">
@@ -263,13 +257,13 @@
                     <td>
                         <div class="step-description">
                             <span class="nested-step">
-                                Get info of store: get
+                                Delete order info by id: delete, 1
                             </span>
 
                         </div>
                     </td>
                     <td width="100"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">2.09s</span></td>
+                    <td width="100"><span class="nested-step">2.2s</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
                     <td width="60" class="step-icon">
@@ -280,7 +274,7 @@
                     <td>
                         <div class="step-description">
                             <span class="nested-group-step">
-                                GET https://petstore.swagger.io/v2/store/inventory
+                                DELETE https://petstore.swagger.io/v2/store/order/1
                             </span>
 
                                 <span class="rest-query">
@@ -300,11 +294,11 @@
                                         aria-label="Close"><span aria-hidden="true">&times;</span>
                                 </button>
                                 <h4 class="modal-title" id="restModalLabel">
-                                GET https://petstore.swagger.io/v2/store/inventory
+                                DELETE https://petstore.swagger.io/v2/store/order/1
                                 </h4>
                             </div>
                             <div class="modal-body">
-                                    <p>Status code: 200</p>
+                                    <p>Status code: 404</p>
                                     <p>Content Type: application/json</p>
                                     <h5>Request Headers</h5>
                                     <pre>Accept=*/*<br>Content-Type=application/json; charset=UTF-8</pre>
@@ -313,9 +307,9 @@
                                     <h5>Request Cookies</h5>
                                     <pre></pre>
                                     <h5>Response Headers</h5>
-                                    <pre>Date: Fri, 10 Aug 2018 08:38:14 GMT<br>Access-Control-Allow-Origin: *<br>Access-Control-Allow-Methods: GET, POST, DELETE, PUT<br>Access-Control-Allow-Headers: Content-Type, api_key, Authorization<br>Content-Type: application/json<br>Connection: close<br>Server: Jetty(9.2.9.v20150224)</pre>
+                                    <pre>Date: Fri, 10 Aug 2018 09:11:37 GMT<br>Access-Control-Allow-Origin: *<br>Access-Control-Allow-Methods: GET, POST, DELETE, PUT<br>Access-Control-Allow-Headers: Content-Type, api_key, Authorization<br>Content-Type: application/json<br>Connection: close<br>Server: Jetty(9.2.9.v20150224)</pre>
                                 <h5>Response Body</h5>
-                                    <pre>{<br>    &quot;mollit&quot;: 1,<br>    &quot;string&quot;: 2943,<br>    &quot;Operated&quot;: 4,<br>    &quot;available bjkb&quot;: 1,<br>    &quot;unavailable&quot;: 1,<br>    &quot;pariatur&quot;: 1,<br>    &quot;pending&quot;: 16,<br>    &quot;Not-Operated&quot;: 10,<br>    &quot;available&quot;: 3768,<br>    &quot;available;pending;sold&quot;: 6,<br>    &quot;dolore Excepteur&quot;: 1,<br>    &quot;ava11ilable&quot;: 1,<br>    &quot;Success&quot;: 3,<br>    &quot;Unavailable&quot;: 19,<br>    &quot;Custom-status_DONE&quot;: 1,<br>    &quot;pssed&quot;: 1,<br>    &quot;Shortlisted&quot;: 18,<br>    &quot;drunk&quot;: 1,<br>    &quot;ea in&quot;: 1,<br>    &quot;Sold&quot;: 22,<br>    &quot;not available&quot;: 2,<br>    &quot;missing&quot;: 4,<br>    &quot;Available&quot;: 2,<br>    &quot;Something&quot;: 1,<br>    &quot;11&quot;: 1,<br>    &quot;sold&quot;: 30,<br>    &quot;ad voluptate&quot;: 1,<br>    &quot;Offline&quot;: 1,<br>    &quot;laboris eiu&quot;: 1,<br>    &quot;Let&quot;: 1,<br>    &quot;enim deserunt&quot;: 1,<br>    &quot;adopted&quot;: 1,<br>    &quot;status&quot;: 6<br>}</pre>
+                                    <pre>Order not found</pre>
                                     <h5>Response Cookies</h5>
                                     <pre></pre>
                             </div>
@@ -335,11 +329,11 @@
                 </tr>
 
 
-                <tr class="test-SUCCESS">
+                <tr class="test-FAILURE">
                     <td width="60" class="step-icon">
                         
                             <span style="margin-left: 40px; margin-right: 5px;"
-                                  class="nested-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                  class="nested-icon"><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></span>
                     </td>
                     <td>
                         <div class="step-description">
@@ -349,14 +343,14 @@
 
                         </div>
                     </td>
-                    <td width="100"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">0.01s</span></td>
+                    <td width="100"><span class="nested-step">FAILURE</span></td>
+                    <td width="100"><span class="nested-step">0.02s</span></td>
                 </tr>
-                <tr class="test-SUCCESS">
+                <tr class="test-FAILURE">
                     <td width="60" class="step-icon">
                         
                             <span style="margin-left: 60px; margin-right: 5px;"
-                                  class="nested-group-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                  class="nested-group-icon"><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></span>
                     </td>
                     <td>
                         <div class="step-description">
@@ -366,53 +360,66 @@
 
                         </div>
                     </td>
-                    <td width="100"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">0s</span></td>
+                    <td width="100"><span class="nested-group-step">FAILURE</span></td>
+                    <td width="100"><span class="nested-group-step">0.01s</span></td>
                 </tr>
+                    <tr class="test-FAILURE">
+                        <td width="40">&nbsp</td>
+                        <td width="%" colspan="4" class="error-message-cell">
+                            <div class="error-message ellipsis"
+                                 title='Assertion error: The status code is incorrect, something in the operation went wrong expected:&lt;200&gt; but was:&lt;404&gt;'>
+                                <pre>Assertion error: The status code is incorrect, something in the operation went wrong expected:&lt;200&gt; but was:&lt;404&gt;</pre>
+                            </div>
+                <div><!-- Stack trace -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                            data-target="#stacktraceModal-6">
+                        View details
+                    </button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="stacktraceModal-6" tabindex="-1" role="dialog"
+                     aria-labelledby="stacktraceModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close"><span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="stacktraceModalLabel">
+                                    java.lang.AssertionError
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                    <h5>
+                                        <pre>The status code is incorrect, something in the operation went wrong expected:&lt;200&gt; but was:&lt;404&gt;</pre>
+                                    </h5>
+                                    com.adidas.serenitySteps.storeSteps.StoreExampleSteps.checkStatusCode(StoreExampleSteps.java
+                                    :39) <br>
+                                    com.adidas.gherkinDefinitions.storeDefinitions.StoreExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(StoreExampleDefinitions.java
+                                    :67) <br>
+                                    cucumber.runner.Runner.runPickle(Runner.java
+                                    :80) <br>
+                            </div>
 
-                <tr class="test-SUCCESS">
-                    <td width="60" class="step-icon">
-                        
-                            <span style="margin-left: 40px; margin-right: 5px;"
-                                  class="nested-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
-                    </td>
-                    <td>
-                        <div class="step-description">
-                            <span class="nested-step">
-                                And The value for the 'status' after the 'get' should be '6'
-                            </span>
-
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
                         </div>
-                    </td>
-                    <td width="100"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">0.48s</span></td>
-                </tr>
-                <tr class="test-SUCCESS">
-                    <td width="60" class="step-icon">
-                        
-                            <span style="margin-left: 60px; margin-right: 5px;"
-                                  class="nested-group-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
-                    </td>
-                    <td>
-                        <div class="step-description">
-                            <span class="nested-group-step">
-                                Verify results operation: net.serenitybdd.rest.decorators.ResponseDecorated@1e537490, status, get, 6
-                            </span>
-
-                        </div>
-                    </td>
-                    <td width="100"><span class="nested-group-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-group-step">0.48s</span></td>
-                </tr>
+                    </div>
+                </div>
+                        </td>
+                    </tr>
 
 
                     </table>
                     </td>
                     <tr>
-                <tr class="test-SUCCESS">
+                <tr class="test-FAILURE">
                     <td colspan="2"></td>
-                    <td width="100"><span class="top-level-step"><em>SUCCESS</em></span></td>
-                    <td width="100"><span class="top-level-step"><em>9.25s</em></span></td>
+                    <td width="100"><span class="top-level-step"><em>FAILURE</em></span></td>
+                    <td width="100"><span class="top-level-step"><em>9.82s</em></span></td>
                 </tr>
 
             </table>

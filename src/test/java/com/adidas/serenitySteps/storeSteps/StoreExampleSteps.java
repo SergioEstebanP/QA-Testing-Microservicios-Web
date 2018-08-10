@@ -7,7 +7,10 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
+import org.json.JSONObject;
 import org.junit.Assert;
+
+import java.io.InputStream;
 
 import static net.serenitybdd.rest.SerenityRest.rest;
 
@@ -46,5 +49,33 @@ public class StoreExampleSteps {
                 Assert.assertTrue("The current value of the response doesn't match with the expected one", responseValue.contains(value));
                 break;
         }
+    }
+
+    @Step
+    public void orderPetInStore(String operation) {
+        try {
+            InputStream is = this.getClass().getResourceAsStream("/requests/storeOrder.json");
+            JSONObject body = servicesSupport.jsonInputStreamToJsonObject(is);
+            spec = spec.body(body.toMap());
+            endpoint = getEndPoint() + "/" + "order";
+            Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), getEndPoint());
+            Serenity.setSessionVariable("response").to(response);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @Step
+    public void getOrderInfoById(String operation, int id) {
+        endpoint = getEndPoint() + "/" + "order/" + Integer.toString(id);
+        Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), endpoint);
+        Serenity.setSessionVariable("response").to(response);
+    }
+
+    @Step
+    public void deleteOrderInfoById(String operation, int id) {
+        endpoint = getEndPoint() + "/" + "order/" + Integer.toString(id);
+        Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), endpoint);
+        Serenity.setSessionVariable("response").to(response);
     }
 }
