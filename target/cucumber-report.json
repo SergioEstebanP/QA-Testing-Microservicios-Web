@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 2562173573,
+              "duration": 2539206563,
               "status": "passed"
             },
             "match": {
@@ -15,31 +15,31 @@
           },
           {
             "result": {
-              "duration": 10298440,
-              "status": "passed"
-            },
-            "match": {
-              "location": "PetExampleDefinitions.startInfluxdb(Scenario)"
-            }
-          },
-          {
-            "result": {
-              "duration": 8057163,
+              "duration": 8726602,
               "status": "passed"
             },
             "match": {
               "location": "StoreExampleDefinitions.startInfluxdb(Scenario)"
             }
+          },
+          {
+            "result": {
+              "duration": 19559654,
+              "status": "passed"
+            },
+            "match": {
+              "location": "PetExampleDefinitions.startInfluxdb(Scenario)"
+            }
           }
         ],
-        "line": 12,
+        "line": 15,
         "name": "",
         "description": "",
-        "id": "testing-petstore.swagger.io-services-related-to-user-services;;;2",
+        "id": "testing-petstore.swagger.io-services-related-to-pet-services;;;2",
         "after": [
           {
             "result": {
-              "duration": 57600,
+              "duration": 65706,
               "status": "passed"
             },
             "match": {
@@ -48,20 +48,20 @@
           },
           {
             "result": {
-              "duration": 43519,
-              "status": "passed"
-            },
-            "match": {
-              "location": "PetExampleDefinitions.measureScenario(Scenario)"
-            }
-          },
-          {
-            "result": {
-              "duration": 37120,
+              "duration": 35413,
               "status": "passed"
             },
             "match": {
               "location": "StoreExampleDefinitions.measureScenario(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 32426,
+              "status": "passed"
+            },
+            "match": {
+              "location": "PetExampleDefinitions.measureScenario(Scenario)"
             }
           }
         ],
@@ -70,33 +70,29 @@
         "steps": [
           {
             "result": {
-              "duration": 2282746518,
+              "duration": 1161130887,
               "status": "passed"
             },
-            "line": 6,
-            "name": "I request to do \u0027createList\u0027 \u0027post\u0027 operation against the petStore user service",
+            "line": 9,
+            "name": "I request to do \u0027post\u0027 operation against the petStore service",
             "match": {
               "arguments": [
                 {
-                  "val": "createList",
-                  "offset": 17
-                },
-                {
                   "val": "post",
-                  "offset": 30
+                  "offset": 17
                 }
               ],
-              "location": "UserExampleDefinitions.iRequestToDoOperationOperationAgainstThePetStoreUserService(String,String)"
+              "location": "PetExampleDefinitions.iRequestToStoreAPetInJsonFile(String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 7287457,
+              "duration": 14888088,
               "status": "passed"
             },
-            "line": 7,
-            "name": "I should get 200 status user code",
+            "line": 10,
+            "name": "I should get 200 status code",
             "match": {
               "arguments": [
                 {
@@ -104,33 +100,33 @@
                   "offset": 13
                 }
               ],
-              "location": "UserExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(int)"
+              "location": "PetExampleDefinitions.iShouldGetStatusCode(int)"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 4197114,
+              "duration": 13209157,
               "status": "passed"
             },
-            "line": 8,
-            "name": "The user value for the \u0027id\u0027 after the \u0027post\u0027 should be \u00272311\u0027",
+            "line": 11,
+            "name": "The value for the \u0027status\u0027 after \u0027post\u0027 operation should be \u0027available\u0027",
             "match": {
               "arguments": [
                 {
-                  "val": "id",
-                  "offset": 24
+                  "val": "status",
+                  "offset": 19
                 },
                 {
                   "val": "post",
-                  "offset": 39
+                  "offset": 34
                 },
                 {
-                  "val": "2311",
-                  "offset": 56
+                  "val": "available",
+                  "offset": 61
                 }
               ],
-              "location": "UserExampleDefinitions.theForTheKeyAfterTheOperationShouldBeValue(String,String,String)"
+              "location": "PetExampleDefinitions.checkValueFromResponse(String,String,String)"
             },
             "keyword": "And "
           }
@@ -142,11 +138,11 @@
         ]
       }
     ],
-    "name": "Testing petstore.swagger.io services related to user services",
+    "name": "Testing petstore.swagger.io services related to pet services",
     "description": "",
-    "id": "testing-petstore.swagger.io-services-related-to-user-services",
+    "id": "testing-petstore.swagger.io-services-related-to-pet-services",
     "keyword": "Feature",
-    "uri": "src/test/resources/features/user/user.feature",
+    "uri": "src/test/resources/features/pet/pet.feature",
     "tags": []
   }
 ]

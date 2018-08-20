@@ -10,6 +10,7 @@ import net.thucydides.core.annotations.Step;
 import org.json.JSONObject;
 import org.junit.Assert;
 
+import java.io.File;
 import java.io.InputStream;
 
 import static net.serenitybdd.rest.SerenityRest.rest;
@@ -33,9 +34,12 @@ public class PetExampleSteps {
     @Step
     public void postNewPetOnStore(String operation) {
         try {
-            InputStream is = this.getClass().getResourceAsStream("/requests/postPet.json");
+            /*InputStream is = this.getClass().getResourceAsStream("/requests/postPet.json");
             JSONObject body = servicesSupport.jsonInputStreamToJsonObject(is);
             spec = spec.body(body.toMap());
+            */
+            File myFile = new File("/requests/putPet.xml");
+            spec = spec.body(myFile);
             Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), getEndPoint());
             Serenity.setSessionVariable("response").to(response);
         } catch (Exception e) {
