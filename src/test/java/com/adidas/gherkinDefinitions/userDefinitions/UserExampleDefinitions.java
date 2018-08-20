@@ -36,9 +36,11 @@ public class UserExampleDefinitions {
             case ("post"):
                 switch (operationUser) {
                     case ("create"):
+                        System.out.println("CREATE");
                         userExampleSteps.createUser(operation);
                         break;
                     case ("createList"):
+                        System.out.println("CREATE LIST");
                         userExampleSteps.createUserList(operation);
                         break;
                 }
