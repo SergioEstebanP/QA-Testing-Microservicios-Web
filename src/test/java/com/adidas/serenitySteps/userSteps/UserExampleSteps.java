@@ -7,6 +7,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
 
@@ -102,8 +103,8 @@ public class UserExampleSteps {
         try {
             endpoint = getEndPoint() + "/createWithArray";
             InputStream is = this.getClass().getResourceAsStream("/requests/createUserList.json");
-            JSONObject body = servicesSupport.jsonInputStreamToJsonObject(is);
-            spec = spec.body(body.toMap());
+            JSONArray body = servicesSupport.jsonInputStreamToJsonArray(is);
+            spec = spec.body(body.toList());
             Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), getEndPoint());
             Serenity.setSessionVariable("response").to(response);
         } catch (Exception e) {

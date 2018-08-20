@@ -1,7 +1,7 @@
 Feature: Testing petstore.swagger.io services related to pet services
 
   Scenario:
-    When I request to do 'post' operation by 34346 id against the petStore service
+    When I request to do 'post' operation by 141414 id against the petStore service
     Then I should get 200 status code
 
   Scenario Outline:

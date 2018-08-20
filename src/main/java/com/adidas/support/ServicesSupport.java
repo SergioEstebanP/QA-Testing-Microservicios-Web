@@ -3,6 +3,7 @@ package com.adidas.support;
 import io.restassured.response.Response;
 import org.apache.commons.io.IOUtils;
 import io.restassured.specification.RequestSpecification;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.InputStream;
 
@@ -14,11 +15,23 @@ public class ServicesSupport{
      * @return JSON object
      * */
     public JSONObject jsonInputStreamToJsonObject(InputStream is) throws Exception {
-        
         JSONObject json;
         String jsonTxt = IOUtils.toString(is, "UTF-8");
+        System.out.println(jsonTxt);
         json = new JSONObject(jsonTxt);
         return json;
+    }
+
+    /**
+     * Converts an Input Stream to a JSON array
+     * @param is Input Stream to be converted (a JSON file in the project)
+     * @return JSON array
+     * */
+    public JSONArray jsonInputStreamToJsonArray(InputStream is) throws Exception {
+        JSONArray ja;
+        String jsonTxt = IOUtils.toString(is, "UTF-8");
+        ja = new JSONArray(jsonTxt);
+        return ja;
     }
 
     /**

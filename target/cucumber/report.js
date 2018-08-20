@@ -90,8 +90,7 @@ formatter.match({
   "location": "UserExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(int)"
 });
 formatter.result({
-  "error_message": "java.lang.NullPointerException\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps.checkStatusCode(UserExampleSteps.java:43)\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps$$EnhancerByCGLIB$$4de8d101.CGLIB$checkStatusCode$3(\u003cgenerated\u003e)\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps$$EnhancerByCGLIB$$4de8d101$$FastClassByCGLIB$$50f7a840.invoke(\u003cgenerated\u003e)\r\n\tat net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)\r\n\tat net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:449)\r\n\tat net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:434)\r\n\tat net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:409)\r\n\tat net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:150)\r\n\tat net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:137)\r\n\tat net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:68)\r\n\tat com.adidas.serenitySteps.userSteps.UserExampleSteps$$EnhancerByCGLIB$$4de8d101.checkStatusCode(\u003cgenerated\u003e)\r\n\tat com.adidas.gherkinDefinitions.userDefinitions.UserExampleDefinitions.iShouldGetExpectedStatusCodeStatusStoreCode(UserExampleDefinitions.java:75)\r\n\tat ✽.I should get 200 status user code(src/test/resources/features/user/user.feature:7)\r\n",
-  "status": "failed"
+  "status": "passed"
 });
 formatter.step({
   "name": "The user value for the \u0027id\u0027 after the \u0027post\u0027 should be \u00272311\u0027",
@@ -101,7 +100,7 @@ formatter.match({
   "location": "UserExampleDefinitions.theForTheKeyAfterTheOperationShouldBeValue(String,String,String)"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
 formatter.after({
   "status": "passed"
