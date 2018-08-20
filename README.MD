@@ -30,7 +30,7 @@ Due to the large list of servicies offered by [Petstore](https://petstore.swagge
     - [x] DELETE /store/order/{orderId}: delete purchased order by id.
 
 
-- [ ] **User services**:
+- [x] **User services**:
     - [x] POST /user: create a user.
     - [x] POST /user/createWithArray: creates list of user with given input array.
     - [x] POST /user/createWithList: creates list of user with given input list.
