@@ -158,5 +158,7 @@ fabric.properties
 *.rss
 *.xhtml
 
+### Other documents ###
+*.sh
 
 # End of https://www.gitignore.io/api/web,images,intellij

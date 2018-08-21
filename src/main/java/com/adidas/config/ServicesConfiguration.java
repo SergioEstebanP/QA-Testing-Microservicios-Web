@@ -9,4 +9,8 @@ public class ServicesConfiguration{
     public static final String PET = "/pet";
     public static final String STORE = "/store";
     public static final String USER = "/user";
+
+    private ServicesConfiguration () {
+        throw new IllegalStateException("Utility class");
+    }
 }
