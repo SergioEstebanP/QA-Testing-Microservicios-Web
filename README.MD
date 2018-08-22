@@ -23,11 +23,12 @@ In this respository you'll find an INtellij IDEA complete project with all neces
 ### Tools used in the project
 
 Tools used: 
-- Intellij IDEA: is a whole Intellij IDEA project, build with gradle. An idea it's a very helpful tool for big projects.  
-- Gradle: for build the project and make all the folders and settings to the project. Combined with intellij for download dependencies, they are so powerful. 
-- REST Assured: libraries to testing and validate rest web services in Java. 
-- Github: to have a control version and share knowledge with rest of the world.
-- Postman: tool for external testing of the service. Petstore and reqres have their own example to test their own services but if you want to test some external services which doesn't provide their own example or test services [Postman](https://www.getpostman.com/) solve this problem.
+- **Intellij IDEA**: is a whole Intellij IDEA project, build with gradle. An idea it's a very helpful tool for big projects.  
+- **Gradle**: for build the project and make all the folders and settings to the project. Combined with intellij for download dependencies, they are so powerful. 
+- **REST Assured**: libraries to testing and validate rest web services in Java. 
+- **Github**: to have a control version and share knowledge with rest of the world.
+- **Bitbucket**: to have a control version and share knowledge with rest of the world.
+- **Postman**: tool for external testing of the service. Petstore and reqres have their own example to test their own services but if you want to test some external services which doesn't provide their own example or test services [Postman](https://www.getpostman.com/) solve this problem.
 
 ### Test cases implemented and tested
 
