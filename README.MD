@@ -72,6 +72,17 @@ Cucumber use the Gherkin Syntax, knwon as **Given, When, Then**. Which means:
 
 This is the base of BDD.
 
-The cucumber files are saved in .feature files. One of this files, for example is: [pet.feature](src/test/resources/features/pet/pte.features) , which looks like this:
+The cucumber files are saved in .feature files. One of this files, for example is: [pet.feature](src/test/resources/features/pet/pet.features) , which looks like this:
+
+![alt intellijImport](readmeDocs/petFeature.PNG)
+
+First we have to add a feature description to the test case, which is a short text explaining the actions to achieve. Then we have to create a *Scenario*, which is form by the *Given*, *And*, *Then* and *When* sentences. The And sentence could be added to any of the other in order to add some valuable information to the scenario. Also in the Scenario we declarete the parameters for the test cases because any sentences (when, and, then sentences) are linked to a java file which contains the steps to perform in the software. 
+
+The *Scenario* limit number of parameters to one. If you want to run another test case with other parameters you have to delete the older ones and write the new ones. One solution are the *Scenarios Outline* which provide us a table with lots of parameters to perform the test case. You write a wildcard word and then the table perform one test for parameters rows in the table. 
+
+Now we are going to see the linked java file to Cucumber steps. 
 
 
+#### Example Definitions for the Steps
+
+If you're using Intellij IDEA you can use <Ctrl + Right Click> in the When, And or Then sentence in cucumber file to go to the [PetExampleDefinitions.java](src/) to see the code. 
