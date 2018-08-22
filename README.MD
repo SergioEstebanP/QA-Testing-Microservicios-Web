@@ -21,6 +21,7 @@ In this respository you'll find an INtellij IDEA complete project with all neces
 
 
 ### Tools used in the project
+---
 
 Tools used: 
 - **Intellij IDEA**: is a whole Intellij IDEA project, build with gradle. An idea it's a very helpful tool for big projects.  
@@ -31,6 +32,7 @@ Tools used:
 - **Postman**: tool for external testing of the service. Petstore and reqres have their own example to test their own services but if you want to test some external services which doesn't provide their own example or test services [Postman](https://www.getpostman.com/) solve this problem.
 
 ### Test cases implemented and tested
+---
 
 Due to the large list of services offered by [Petstore](https://petstore.swagger.io/#/) it's a good idea to have some control of which services and test cases we have already coded:
 
@@ -65,6 +67,8 @@ Due to the large list of services offered by [Petstore](https://petstore.swagger
 
 ### Project Configuration
 
+---
+
 First of all you have to clone or download the repository to your local machine. To clone it you have to enter this command:
 
 ```$ git clone https://github.com/SergioEstebanP/QA-Testing-Microservicios-Web.git```
@@ -79,9 +83,13 @@ Once you have the project opened you must run the project and it's possible that
 
 ### Code Explication and example
 
+---
+
 Now you have a running version of the program. This code is designed to automation of test programs. Here I follow a **BDD** development, which means **B**ehavior **D**riven **D**evelopment. I develop the code due to the behavior of it (program fails, program succeed ...). Some tools used for BDD are [Selenium BDD](https://www.seleniumhq.org/) to Web Browser automation. In this project I use [REST Assured](http://rest-assured.io/) to Web Services automation. Also I use [Serenity BDD](http://www.thucydides.info/#/) to see the results in a proper way, serenity provides an api to see the execution results of test cases in HTML.
 
 #### Cucumber and Gherkin
+
+---
 
 The main idea of the BDD is design the scenario of use to some program and play click to test it. First of all I use [Cucumber](https://docs.cucumber.io/) to describe these scenarios of use. Cucumber allows to write in simple and natural language a scenario of use for a program. These api provide tons of languages to write the scenarios, in this case I'll use English due to the languge use in the guide!.
 
@@ -105,6 +113,8 @@ Now we are going to see the linked java file to Cucumber steps.
 
 #### Example Definitions for the Steps
 
+---
+
 If you're using Intellij IDEA you can use <Ctrl + Right Click> in the When, And or Then sentence in cucumber file to go to the [PetExampleDefinitions.java](/src/test/java/com/adidas/gherkinDefinitions/petDefinitions/PetExampleDefinitions.java) to see the code. For example use <Ctrl + Right Click> in line 4 of pet.feature, it should go to PetExampleDefinitions.java line 54, which looks like:
 
 ![alt intellijImport](readmeDocs/petExampleDefinitions.PNG)
@@ -118,6 +128,8 @@ Now we must go to the  [PetExampleSteps.java](/src/test/java/com/adidas/serenity
 Now we are going to go through Example Steps.
 
 #### Example Steps 
+
+---
 
 If you used <Ctrl + Right Click> your IDE must be in [PetExampleSteps.java](/src/test/java/com/adidas/serenitySteps/petSteps/PetExampleSteps.java) which looks like this:
 
@@ -142,6 +154,8 @@ Now we get at an important point, because we have done all the steps for the Whe
 Now we have a complete test coded, we execute it and all it's correct. ¿We can see the results in a proper way?: Yes. Serenity BDD provide us a clear way to see the results of the test in an HTML doc.
 
 #### Reports of Serenity BDD
+
+---
 
 Serenity BDD provide us a complete and automatic API to see the results in HTML file and open it in your favorite browser. If the test pass or fail isn't important now, Serenity will generate the reports anyway. This reports are located in [index.html](target/site/serenity/index.html), the path is: *target/site/serenity/index.html*. And if you open this file with a browser you should see something like this:
 
