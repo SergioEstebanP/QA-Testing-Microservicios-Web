@@ -10,12 +10,12 @@ In this respository you'll find an INtellij IDEA complete project with all neces
 3. [Tools used in the project](#tools-used-in-the-project) 
 4. [Test cases implemented and tested](#test-cases-implemented-and-tested) 
 5. [Project description and examples of use](#project-description-and-example-of-use) 
-    5. [Project Configuration](#project-configuration) 
-    5. [Code Explication and Example](#code-explication-and-example) 
-        5. [Cucumber and Gherkin](#cucumber-and-gherkin) 
-        5. [Example Definition for the Steps](#example-definitions-for-the-steps) 
-        5. [Example Steps](#example-steps) 
-        5. [Reports in Serenity BDD](#reports-of-serenity-bdd) 
+    1. [Project Configuration](#project-configuration) 
+    2. [Code Explication and Example](#code-explication-and-example) 
+        1. [Cucumber and Gherkin](#cucumber-and-gherkin) 
+        2. [Example Definition for the Steps](#example-definitions-for-the-steps) 
+        3. [Example Steps](#example-steps) 
+        4. [Reports in Serenity BDD](#reports-of-serenity-bdd) 
         
 
 
