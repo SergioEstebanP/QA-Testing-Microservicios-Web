@@ -10,11 +10,13 @@ buildscript {
     }
     dependencies {
         classpath("net.serenity-bdd:serenity-gradle-plugin:1.9.31")
+        classpath ("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2")
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: 'org.sonarqube'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -38,3 +40,4 @@ test {
     test.reports.junitXml.enabled= false
     include 'com/adidas/serenityRunner/TestRunner.class'
 }
+

@@ -1,7 +1,6 @@
 Feature: Testing petstore.swagger.io services related to user services
 
   # until now, generic scenario
-  @test
   Scenario Outline:
     When I request to do '<userOperation>' '<operation>' operation against the petStore user service
     Then I should get <expectedStatusCode> status user code
