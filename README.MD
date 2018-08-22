@@ -91,7 +91,7 @@ Cucumber use the Gherkin Syntax, knwon as **Given, When, Then**. Which means:
 
 This is the base of BDD.
 
-The cucumber files are saved in .feature files. One of this files, for example is: [pet.feature](src/test/resources/features/pet/pet.features) , which looks like this:
+The cucumber files are saved in .feature files. One of this files, for example is: [pet.feature](src/test/resources/features/pet/pet.feature) , which looks like this:
 
 ![alt intellijImport](readmeDocs/petFeature.PNG)
 
