@@ -16,7 +16,9 @@ In this respository you'll find an INtellij IDEA complete project with all neces
         2. [Example Definition for the Steps](#example-definitions-for-the-steps) 
         3. [Example Steps](#example-steps) 
         4. [Reports in Serenity BDD](#reports-of-serenity-bdd) 
-        
+    6. [Automation of Building, test, results and deploy in Jenkins](#automation-of-building,-test,-results-and-deploy-in-jenkins)       
+        1. [Setting up Docker](#setting-up-docker)
+        2. [Setting up Jenkins](#setting-up-jenkins)
 
 
 
@@ -172,3 +174,69 @@ If we navigate in this page we see all the steps perform by our software in a pr
 As mentioned before Serenity BDD it's only an API to see the results in a proper way. (We used for it I mean, because it has more features not used in this project).
 
 With this tutorial you must understand the basis of automation test, Behaviour Driven Development and the software and API's used in real life projects. 
+
+### Automation of Building, test, results and deploy in Jenkins
+
+#### Setting up Docker
+
+---
+
+What is *Jenkins*? It's a server which provides automation tools, you can run lot of software in an automatic way. In this example we are going to automate all the process we have done manually in the steps above. 
+
+First of all we have to install [Docker](https://www.docker.com/). If you're using Linux you only have to run this command in the prompt:
+
+```$ sudo apt install docker```
+
+Docker is almost like a virtual machine, but here we have something called containers. A container is a stand alone application which runs onto a linux distribution. Containers provides more security than VM and most important facts, they are lightweight. Once we have docker installed we have to run this commands:
+
+```$ docker pull jenkins/jenkins:lts```
+ 
+ This command download the image of a linux distribution with jenkins installed on it. Then You must power on the container. Execute this command: 
+ 
+```$ docker run -p 8080:8080 -p 50000:50000 --name jk jenkins/jenkins:lts```
+
+This command redirect the ports of the container to the local machine ports, give it a normal name (by default docker gives a random name to the container if you don't specified one). Now we have the container up. Other useful command for the future is:
+
+```$ docker start jk ```
+
+```$ docker exec -it -u root jk bash```
+
+The last one allows you to enter into the bash container and execute commands as if you was in linux. Once you have all docker system ready we are going to set up jenkins server. 
+
+If you are in Windows, you have to download the installer and execute the setup, is guided and for dummies. 
+
+#### Setting up Jenkins
+
+---
+
+By default Jenkins provides the server in the http://localhost:8080 direction. You can change it but it's not important. Once you enter in this link Jenkins guide you to configure it. Select the recommended options and go ahead. You can find out more information about the set up here [Jenkins installation](https://jenkins.io/doc/book/installing/).
+
+Once you have it all ready you must see a screen like this: 
+
+![alt intellijImport](readmeDocs/jenkinsMain.PNG)
+
+First of all, I think you must set up some Jenkins configurations, like set up the gradle distribution you want to use or the JDK. You can do this in this screen: 
+
+![alt intellijImport](readmeDocs/jenkinsConfiguration.PNG)
+
+If you scroll down you would see the gradle set up and so on. There are lots of information on google to find out how to set up the plugins. The nex step is create the pipelines. 
+
+Now you have to click in **New Job**, the you have to enter the name of the 'Project' you're going to create and select Pipeline. Then you can configure all the settings for the pipeline, now we are set up the basics. Scroll down to Pipeline and in definition you must select **Pipeline script from SCM**. Enter your favourite SMC (in my case: Git) and enter the path of the Jenkinsfile into the project. In this project you only have to write Jenkinsfile. Then apply the changes and save. Then go to the dashboard and click in the name of the pipeline you have created now. 
+
+First of all we are going to explain the Jenkinsfile. This file contains a bunch of sentences written in [Groovy](http://groovy-lang.org/). The [Jenkinsfile](Jenkinsfile) looks like that:
+
+![alt intellijImport](readmeDocs/jenkinsFile.PNG)
+
+This file contains a series of sentences and steps which Jenkins server will execute. In a short way, we define stages and in each stage we define the steps to be execute by Jenkins server. This steps are like linux or windows commands. We see the clone part where we obtain the source code, then we have the build part with gradle which build all the project and compile it, then we have the test part where the test features are executed in order and finally we generate the serenity reports. If we click in build now, we can see the process of all stages with the time spend in each one and the commands done. 
+
+The result of the execution should be something like this: 
+
+![alt intellijImport](readmeDocs/jenkinsOuput.PNG)
+
+Jenkins server allow us to execute this pipelines by time, trigger the executions if some commit is done in the repository, etc. Jenkins server it's the perfect automation tools for QA testers. 
+
+
+
+
+
+
