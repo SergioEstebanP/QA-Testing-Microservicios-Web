@@ -17,7 +17,6 @@ public class ServicesSupport{
     public JSONObject jsonInputStreamToJsonObject(InputStream is) throws Exception {
         JSONObject json;
         String jsonTxt = IOUtils.toString(is, "UTF-8");
-        System.out.println(jsonTxt);
         json = new JSONObject(jsonTxt);
         return json;
     }
