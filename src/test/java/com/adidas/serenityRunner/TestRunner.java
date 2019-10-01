@@ -16,7 +16,7 @@ import java.net.InetAddress;
         features = {"src/test/resources/features"},
         plugin = { "pretty", "html:target/cucumber", "json:target/cucumber-report.json"},
         glue = {"com.adidas.gherkinDefinitions"},
-        tags = {"@test"}
+        tags = {"@qa"}
 )
 
 public class TestRunner {

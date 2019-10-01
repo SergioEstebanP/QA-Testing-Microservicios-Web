@@ -1,149 +1,77 @@
 package com.adidas.serenitySteps.petSteps;
 
-import com.adidas.config.ServicesConfiguration;
 import com.adidas.support.ServicesSupport;
-import io.restassured.http.ContentType;
+import cucumber.api.DataTable;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import net.serenitybdd.core.Serenity;
-import net.thucydides.core.annotations.Step;
-import org.json.JSONObject;
 import org.junit.Assert;
 
-import java.io.File;
-import java.io.InputStream;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static net.serenitybdd.rest.SerenityRest.rest;
 
 public class PetExampleSteps {
 
-    private ServicesSupport servicesSupport = new ServicesSupport();
-    private RequestSpecification spec = rest().baseUri(ServicesConfiguration.URI).contentType(ContentType.JSON).when();
+    public RequestSpecification requestSpecification = rest();
+    public Response response;
+    public String ENDPOINT;
+    public String OPERATION;
 
-    private String getEndPoint() {
-        return endpoint;
+    public void setBaseUrl() {
+        requestSpecification.baseUri(ServicesSupport.BASE_PET_STORE_PATH);
     }
 
-    private String endpoint = ServicesConfiguration.PET;
+    public void setBody(String requestBody) {
+        requestSpecification.body(requestBody);
+    }
 
-    /**
-     * Performs a POST operation with the given pet in json file, and it will create a new pet in the store
-     *
-     * @param operation String with the specified operation in cucumber
-     */
-    @Step
-    public void postNewPetOnStore(String operation) {
-        try {
-            /*InputStream is = this.getClass().getResourceAsStream("/requests/postPet.json");
-            JSONObject body = servicesSupport.jsonInputStreamToJsonObject(is);
-            spec = spec.body(body.toMap());
-            */
-            File myFile = new File("/requests/putPet.xml");
-            spec = spec.body(myFile);
-            Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), getEndPoint());
-            Serenity.setSessionVariable("response").to(response);
-        } catch (Exception e) {
-            System.out.println(e);
+    public void setEndpoint(String endpoint) {
+        ENDPOINT = endpoint;
+    }
+
+    public void setHeaderToValue(String headerName, String headerValue) {
+        requestSpecification.header(headerName, headerValue);
+    }
+
+    public void setHeaderBulk(DataTable headers) {
+        Map<String, String> headersMap = headers.asMap(String.class, String.class);
+        for (String headerName : headersMap.keySet()) {
+            requestSpecification.header(headerName, headersMap.get(headerName));
         }
     }
 
-    /**
-     * Performs a PUT operation with the given pet in json file, and it will update the information on the server store
-     *
-     * @param operation String with the specified operation in cucumber
-     */
-    @Step
-    public void putNewInfoOnStore(String operation) {
-        try {
-            InputStream is = this.getClass().getResourceAsStream("/requests/putPet.json");
-            JSONObject body = servicesSupport.jsonInputStreamToJsonObject(is);
-            spec = spec.body(body.toMap());
-            Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), getEndPoint());
-            Serenity.setSessionVariable("response").to(response);
-        } catch (Exception e) {
-            System.out.println(e);
+    public void setRequestOperation(String operation) {
+        OPERATION = operation;
+    }
+
+    public void executeRequest() {
+        response = ServicesSupport.executeRequest(requestSpecification, OPERATION, ENDPOINT);
+    }
+
+    public void checkStatusCode(int statusCode) {
+        int responseStatusCode = response.getStatusCode();
+        Assert.assertEquals(statusCode, responseStatusCode);
+    }
+
+    public void checkValidId(String jsonPath) {
+        int responseId = response.jsonPath().getInt(jsonPath);
+        Pattern pattern = Pattern.compile("\\d");
+        Matcher match = pattern.matcher(String.valueOf(responseId));
+        Assert.assertTrue(match.lookingAt());
+    }
+
+    public void checkJsonPathValue(String jsonPath, String value) {
+        String responseValue = response.jsonPath().getString(jsonPath);
+        Assert.assertEquals(value, responseValue);
+    }
+
+    public void setToken(String tokenName, String value) {
+        if ("valid_token".equals(value)) {
+            requestSpecification.header(tokenName, ServicesSupport.TOKEN);
+        } else {
+            requestSpecification.header(tokenName, value);
         }
-    }
-
-    /**
-     * Performs a PUT operation with the given pet in json file, and it will update the information on the server store
-     *
-     * @param operation String with the specified operation in cucumber
-     */
-    @Step
-    public void updateInfoById(String operation, int id) {
-        endpoint = getEndPoint() + "/" + Integer.toString(id);
-        Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), endpoint);
-        Serenity.setSessionVariable("response").to(response);
-    }
-
-    /**
-     * Performs a GET operation into the server retrieving some information off it.
-     *
-     * @param operation String with the specified operation in cucumber
-     */
-    @Step
-    public void getInfoOfStore (String operation) {
-        endpoint = getEndPoint() + "/findByStatus?status=available";
-        Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), endpoint);
-        Serenity.setSessionVariable("response").to(response);
-    }
-
-    /**
-     * Method to verify if the status code returned by the operation is which it should be
-     *
-     * @param statusCode integer with the status code with the result of the performed operation
-     */
-    @Step
-    public void verifyStatusCode(int statusCode) {
-        Response res = Serenity.sessionVariableCalled("response");
-        Assert.assertEquals("The status code is incorrect, something in the operation went wrong", statusCode, res.getStatusCode());
-    }
-
-    /**
-     * Performs a GET operation into the server to retrieving some pet information filtered by its id
-     *
-     * @param operation String with the specified operation in cucumber
-     * @param id Integer which represents the pet's id in the server
-     */
-    @Step
-    public void getPetById(String operation, int id) {
-        endpoint = getEndPoint() + "/" + Integer.toString(id);
-        Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), endpoint);
-        Serenity.setSessionVariable("response").to(response);
-    }
-
-    /**
-     * Method to verify if the results of the operation are corrects. It compares what should be and what there is in the response.
-     *
-     * @param identifier String which represents the identifier of the JSON body
-     * @param value      String which represents the value of the JSON identifier.
-     */
-    @Step
-    public void checkValueFromResponse(Response response, String operation, String identifier, String value) {
-        String responseValue = null;
-
-        switch (operation.toLowerCase()) {
-            case "post":
-                responseValue = response.getBody().jsonPath().getString(identifier);
-                Assert.assertEquals("The current value of the response doesn't match with the expected one", value, responseValue);
-                break;
-            case "get":
-                responseValue = response.getBody().jsonPath().getString(identifier);
-                Assert.assertTrue("The current value of the response doesn't match with the expected one", responseValue.contains(value));
-                break;
-        }
-    }
-
-    /**
-     * Method to delete a pet from the server filtered by its id.
-     *
-     * @param operation String with the specified operation in cucumber
-     * @param id Integer which represents the pet's id in the server
-     */
-    public void deletePetById(String operation, int id) {
-        endpoint = getEndPoint() + "/" + Integer.toString(id);
-        Response response = servicesSupport.executeRequest(spec, operation.toUpperCase(), endpoint);
-        Serenity.setSessionVariable("response").to(response);
     }
 }

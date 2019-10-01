@@ -5,62 +5,48 @@ import org.apache.commons.io.IOUtils;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.Properties;
 
 public class ServicesSupport{
+    public static final String BASE_PET_STORE_PATH = "https://petstore.swagger.io/v2";
+    public static Properties dataProperties;
+    public static String TOKEN;
 
-    /**
-     * Converts an Input Stream to a JSON object
-     * @param is Input Stream to be converted (a JSON file in the project)
-     * @return JSON object
-     * */
-    public JSONObject jsonInputStreamToJsonObject(InputStream is) throws Exception {
-        JSONObject json;
-        String jsonTxt = IOUtils.toString(is, "UTF-8");
-        json = new JSONObject(jsonTxt);
-        return json;
+    static {
+        try {
+            dataProperties.load(new FileInputStream("src/main/java/com/adidas/support/data.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        TOKEN = dataProperties.getProperty("REQUEST_TOKEN");
     }
 
-    /**
-     * Converts an Input Stream to a JSON array
-     * @param is Input Stream to be converted (a JSON file in the project)
-     * @return JSON array
-     * */
-    public JSONArray jsonInputStreamToJsonArray(InputStream is) throws Exception {
-        JSONArray ja;
-        String jsonTxt = IOUtils.toString(is, "UTF-8");
-        ja = new JSONArray(jsonTxt);
-        return ja;
-    }
-
-    /**
-     * Executes a request depending on the method received by parameter
-     * @param spec Request specification
-     * @param method One of the next values: get, post, put or delete
-     * @param endpoint Endpoint of the service
-     * @return response object with attributes like status code or response body
-     * */
-    public Response executeRequest(RequestSpecification spec, String method, String endpoint) {
+    public static Response executeRequest(RequestSpecification requestSpecification, String operation, String endpoint) {
         Response response;
-
-        switch (method.toUpperCase()) {
-            case "GET":
-                response = spec.get(endpoint);
+        switch (operation.toLowerCase()) {
+            case ("GET"):
+                response = requestSpecification.get(endpoint);
                 break;
-            case "POST":
-                response = spec.post(endpoint);
+            case ("POST"):
+                response = requestSpecification.post(endpoint);
                 break;
-            case "DELETE":
-                response = spec.delete(endpoint);
+            case ("PUT"):
+                response = requestSpecification.put(endpoint);
                 break;
-            case "PUT":
-                response = spec.put(endpoint);
+            case ("DELETE"):
+                response = requestSpecification.delete(endpoint);
+                break;
+            case ("PATCH"):
+                response = requestSpecification.patch(endpoint);
                 break;
             default:
-                response = spec.get(endpoint);
+                response = requestSpecification.get(endpoint);
                 break;
         }
         return response;
     }
-
 }

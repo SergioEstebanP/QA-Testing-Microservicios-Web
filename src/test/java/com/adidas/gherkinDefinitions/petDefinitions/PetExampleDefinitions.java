@@ -1,102 +1,76 @@
 package com.adidas.gherkinDefinitions.petDefinitions;
 
-import com.adidas.influxdb.InfluxDBIntegration;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+import com.adidas.serenitySteps.petSteps.PetExampleSteps;
+import cucumber.api.DataTable;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.restassured.response.Response;
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
-import com.adidas.serenitySteps.petSteps.PetExampleSteps;
-
-import java.awt.*;
-import java.util.Calendar;
 
 public class PetExampleDefinitions {
 
-    /**
-     * Method executed before each scenario to start measuring execution times
-     *
-     * @param scenario Scenario object to check if the scenario contains the tag to write on InfluxDB
-     */
-    @Before
-    public void startInfluxdb(Scenario scenario) {
-        if (scenario.getSourceTagNames().contains("@influxdb"))
-            Serenity.setSessionVariable("startTime").to(Calendar.getInstance());
-    }
-
     @Steps
-    private PetExampleSteps PetExampleSteps;
+    private PetExampleSteps petExampleSteps;
 
-    /**
-     * Step definition: the user try to post a new pet on the store.
-     *
-     */
-    @When("^I request to do '(.*)' operation against the petStore service$")
-    public void iRequestToStoreAPetInJsonFile (String operation) {
-        switch (operation.toLowerCase()){
-            case ("post"):
-                PetExampleSteps.postNewPetOnStore(operation);
-                break;
-            case ("put"):
-                PetExampleSteps.putNewInfoOnStore(operation);
-                break;
-            case ("get"):
-                PetExampleSteps.getInfoOfStore(operation);
-                break;
-        }
+    @Given("^I set base URL for the request to base petstore URL$")
+    public void iSetBaseUrlForRequestBasePetStore() {
+        petExampleSteps.setBaseUrl();
     }
 
-    @When("^I request to do '(.*)' operation by (.*) against the petStore service$")
-    public void iRequestToDoOperationOperationByIdAgainstThePetStoreService(String operation, int id) {
-        switch (operation.toLowerCase()) {
-            case ("get"):
-                PetExampleSteps.getPetById(operation, id);
-                break;
-            case ("delete"):
-                PetExampleSteps.deletePetById(operation, id);
-                break;
-            case ("post"):
-                PetExampleSteps.updateInfoById(operation, id);
-                break;
-        }
+    @And("^I set endpoint to \"([^\"]*)\"$")
+    public void iSetEndpointTo(String endpoint) {
+        petExampleSteps.setEndpoint(endpoint);
     }
 
-    @And("^I want to change the name to '(.*)' and the status to '(.*)'$")
-    public void iWantToChangeTheNameToBuguiAndTheStatusToSold(String name, String status) {
+    @And("^I set body with this template: \"([^\"]*)\"$")
+    public void iSetBodyWithFromThisTemplate(String pathFile) {
+        //petExampleSteps.setBody();
     }
 
-    @Then("^I should get (.*) status code$")
-    public void iShouldGetStatusCode (int statusCode) {
-        PetExampleSteps.verifyStatusCode(statusCode);
+    @And("^I set body with this information:$")
+    public void iSetBodyWithThisInformation(String requestBody) {
+        petExampleSteps.setBody(requestBody);
     }
 
-    @And ("^The value for the '(.*)' after '(.*)' operation should be '(.*)'$")
-    public void checkValueFromResponse (String identifier, String operation, String value) {
-        Response res = Serenity.sessionVariableCalled("response");
-        PetExampleSteps.checkValueFromResponse(res, operation, identifier, value);
+    @And("^I set header \"([^\"]*)\" to value \"([^\"]*)\"$")
+    public void iSetHeaderToValue(String headerName, String headerValue) {
+        petExampleSteps.setHeaderToValue(headerName, headerValue);
     }
 
-    /**
-     * Method executed after each scenario to write execution times on InfluxDB
-     *
-     * @param scenario Scenario object to write different attributes in DB
-     */
-    @After
-    public void measureScenario(Scenario scenario) throws AWTException {
-
-        if (scenario.getSourceTagNames().contains("@influxdb")) {
-            InfluxDBIntegration bd = InfluxDBIntegration.getInstance();
-            Calendar startTime = Serenity.sessionVariableCalled("startTime");
-            Serenity.setSessionVariable("endTime").to(Calendar.getInstance());
-            Calendar endTime = Serenity.sessionVariableCalled("endTime");
-            bd.writeInfluxDB(scenario, startTime, endTime);
-        }
-
+    @And("^I set headers with:$")
+    public void iSetHeadersWith(DataTable headers) {
+        petExampleSteps.setHeaderBulk(headers);
     }
 
+    @When("^I execute the request$")
+    public void iExecuteTheRequest() {
+        petExampleSteps.executeRequest();
+    }
 
+    @And("^I set operation request to \"([^\"]*)\"$")
+    public void iSetOperationRequestTo(String operation) {
+        petExampleSteps.setRequestOperation(operation);
+    }
+
+    @Then("^the status code should be a (\\d+)$")
+    public void theStatusCodeShouldBeA(int statusCode) {
+        petExampleSteps.checkStatusCode(statusCode);
+    }
+
+    @And("^the response json path \"([^\"]*)\" should be a valid id$")
+    public void heResponseJsonPathShouldBeAValidId(String jsonPath) {
+        petExampleSteps.checkValidId(jsonPath);
+    }
+
+    @And("^the response json path \"([^\"]*)\" should be \"([^\"]*)\"$")
+    public void theResponseJsonPathShouldBe(String jsonPath, String value) {
+        petExampleSteps.checkJsonPathValue(jsonPath, value);
+    }
+
+    @And("^I set header \"([^\"]*)\" to \"([^\"]*)\"$")
+    public void iSetHeaderTo(String tokenName, String value) {
+        petExampleSteps.setToken(tokenName, value);
+    }
 }
