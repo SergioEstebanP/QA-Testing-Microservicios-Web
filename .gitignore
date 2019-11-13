@@ -1,8 +1,6 @@
 # Created by https://www.gitignore.io/api/web,images,intellij
 
-# Hidden folders and documents except .gitignore
 /.idea
-/.gradle/
 
 ### Images ###
 # JPEG
@@ -89,11 +87,6 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-
-# Gradle
-.gradle/
-.idea/**/gradle.xml
-.idea/**/libraries
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
