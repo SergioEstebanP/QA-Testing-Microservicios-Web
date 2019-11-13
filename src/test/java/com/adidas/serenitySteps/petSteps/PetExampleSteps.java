@@ -2,29 +2,22 @@ package com.adidas.serenitySteps.petSteps;
 
 import com.adidas.support.ServicesSupport;
 import cucumber.api.DataTable;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static net.serenitybdd.rest.SerenityRest.rest;
 
 public class PetExampleSteps {
 
-    public RequestSpecification requestSpecification = rest();
+    public RequestSpecification requestSpecification = RestAssured.given();
     public Response response;
     public String ENDPOINT;
     public String OPERATION;
 
     public void setBaseUrl() {
         requestSpecification.baseUri(ServicesSupport.BASE_PET_STORE_PATH);
-    }
-
-    public void setBody(String requestBody) {
-        requestSpecification.body(requestBody);
     }
 
     public void setEndpoint(String endpoint) {
@@ -55,23 +48,9 @@ public class PetExampleSteps {
         Assert.assertEquals(statusCode, responseStatusCode);
     }
 
-    public void checkValidId(String jsonPath) {
-        int responseId = response.jsonPath().getInt(jsonPath);
-        Pattern pattern = Pattern.compile("\\d");
-        Matcher match = pattern.matcher(String.valueOf(responseId));
-        Assert.assertTrue(match.lookingAt());
-    }
-
     public void checkJsonPathValue(String jsonPath, String value) {
         String responseValue = response.jsonPath().getString(jsonPath);
         Assert.assertEquals(value, responseValue);
     }
 
-    public void setToken(String tokenName, String value) {
-        if ("valid_token".equals(value)) {
-            requestSpecification.header(tokenName, ServicesSupport.TOKEN);
-        } else {
-            requestSpecification.header(tokenName, value);
-        }
-    }
 }
